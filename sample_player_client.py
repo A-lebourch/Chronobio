@@ -12,6 +12,10 @@ class PlayerGameClient(Client):
         self._commands: list[str] = []
 
     def run(self: "PlayerGameClient") -> NoReturn:
+        '''
+        fonction run 
+        '''
+
         while True:
             game_data = self.read_json()
             for farm in game_data["farms"]:

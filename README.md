@@ -14,6 +14,7 @@ git clone git@github.com:A-lebourch/Chronobio.git
 ```shell
 pip install arcade
 pip install pytest
+pip install pdoc3
 ```
 
 ## Exécution du jeux en local
@@ -45,3 +46,11 @@ pytest
 
 Pour ce faire il faut configurer un fichier python dans le repertoire tests, voir le fichier test_loan.py dans /tests/chronobio/game (c'est une façon de faire, il y a d'autres possinilités)
 
+
+## Générer la documentation 
+
+```shell
+pdoc "le_fichier_a_documenter" --html
+```
+
+Dans le dossier html ouvrez les différents code html avec un navigateur web pour avoir accès à la documentation
