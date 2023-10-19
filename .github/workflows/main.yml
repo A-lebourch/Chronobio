@@ -32,5 +32,5 @@ jobs:
       working-directory: ./  # Remplacez par le chemin vers votre code
    
     - name: move doc
-      run: mv /html/sample_player_client.html /docs/
+      run: mv html/sample_player_client.html docs/
       working-directory: ./  # Remplacez par le chemin vers votre code
