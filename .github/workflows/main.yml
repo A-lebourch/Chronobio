@@ -28,7 +28,9 @@ jobs:
       working-directory: ./tests  # Remplacez par le chemin vers votre code
 
     - name: create doc
-      run: 
-           pdoc sample_player_client.py --html
-           mv /html/monfichier.html /docs/
+      run: pdoc sample_player_client.py --html --force
+      working-directory: ./  # Remplacez par le chemin vers votre code
+   
+    - name: move doc
+      run: mv /html/monfichier.html /docs/
       working-directory: ./  # Remplacez par le chemin vers votre code
