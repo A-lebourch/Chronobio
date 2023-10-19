@@ -25,4 +25,4 @@ jobs:
 
     - name: Run tests
       run: pytest
-      working-directory: ./tests/chronobio/game/  # Remplacez par le chemin vers votre code
+      working-directory: ./tests  # Remplacez par le chemin vers votre code
