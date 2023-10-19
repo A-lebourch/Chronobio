@@ -1,0 +1,28 @@
+name: Tests
+
+on:
+  push:
+    branches:
+      - main  # Changer pour la branche que vous utilisez
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+    - name: Checkout the code
+      uses: actions/checkout@v2
+
+    - name: Set up Python
+      uses: actions/setup-python@v2
+      with:
+        python-version: 3.10
+
+    - name: Install dependencies
+      run: |
+        pip install -r requirements.txt  # Assurez-vous d'avoir un fichier requirements.txt si nécessaire
+      working-directory: ./  # Remplacez par le chemin vers votre code
+
+    - name: Run tests
+      run: pytest
+      working-directory: ./tests/chronobio/game/test_loan.py  # Remplacez par le chemin vers votre code
