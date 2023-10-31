@@ -37,6 +37,9 @@ class PlayerGameClient(Client):
                 self.add_command("0 EMPLOYER")
                 self.add_command("1 SEMER PATATE 3")
 
+            if game_data["day"] == 0:
+                print(game_data)
+
             self.send_commands()
 
     def add_command(self: "PlayerGameClient", command: str) -> None:
