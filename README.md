@@ -7,35 +7,12 @@
 git clone https://github.com/A-lebourch/Chronobio.git
  ```
 
-<!-- ## Lancer le jeu -->
-installer une dépendance :
+# installer les dépendance :
+
 ```bash
-    pip install -r requirements.txt
+pip install -r requirements.txt
+sudo pip3 install virtualenv 
  ```
-
-<!-- créer le serveur :
-
- ```bash
-    python3 -m chronobio.game.server
- ```
-
-lancer le viewer :
-
- ```bash
-    python3 -m chronobio.viewer
- ```
-
-lancer le client :
-
- ```bash
-    python3 sample_player_client.py -u username
- ```
-
- stopper le serveur :
-
-  ```bash
-    python3 killall.py
- ``` -->
 
  ## lancer en utilisant competition.sh
 
