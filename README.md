@@ -1,56 +1,56 @@
+
 # Chronobio
 
-## Installation
-### Installation du répertoire GIT :
-``` shell
+## Setup du projet :
+
+```bash
 git clone https://github.com/A-lebourch/Chronobio.git
-```
-OU
-```shell
-git clone git@github.com:A-lebourch/Chronobio.git
-```
-### Installation des dépendances :
+ ```
 
-```shell
-pip install arcade
-pip install pytest
-pip install pdoc3
-```
+<!-- ## Lancer le jeu -->
+installer une dépendance :
+```bash
+    pip install -r requirements.txt
+ ```
 
-## Exécution du jeux en local
+<!-- créer le serveur :
 
-Ouvrir 3 terminaux et executer une commande dans un terminal
+ ```bash
+    python3 -m chronobio.game.server
+ ```
 
-```shell
-python3 -m chronobio.game.server 
-```
+lancer le viewer :
 
-```shell
-python3 -m chronobio.viewer 
-```
+ ```bash
+    python3 -m chronobio.viewer
+ ```
 
-Remplacer USERNAME par un pseudo
+lancer le client :
 
-```shell
-python3 sample_player_client.py -u USERNAME
-```
+ ```bash
+    python3 sample_player_client.py -u username
+ ```
 
-## Exécuter les tests du code
+ stopper le serveur :
 
-Grace au paquet python pytest nous avons la possibilité de tester le code pour detecter des erreurs 
+  ```bash
+    python3 killall.py
+ ``` -->
 
-```shell
-cd /tests
-pytest
-```
+ ## lancer en utilisant competition.sh
 
-Pour ce faire il faut configurer un fichier python dans le repertoire tests, voir le fichier test_loan.py dans /tests/chronobio/game (c'est une façon de faire, il y a d'autres possinilités)
+ installer un venv 
+```bash
+ python3 -m venv my_venv
+ ```
+activer le venv
+ ```bash
+ . my_venv/bin/activate
+ ```
+run le code
+ ```bash
+ cd chronobio
 
+ ./competition.sh
 
-## Générer la documentation 
-
-```shell
-pdoc "le_fichier_a_documenter" --html
-```
-
-Dans le dossier html ouvrez les différents code html avec un navigateur web pour avoir accès à la documentation
+ ```
