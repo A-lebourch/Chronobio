@@ -1,0 +1,146 @@
+---------------------------------
+CHAQUE JOUR 
+---------------------------------
+chaque jour financement de : -> 50€ par champ cultivé
+                             -> 30€ pour l'exploitation
+
+canicule      -> arrosage 2X plus important qu'en temps normal
+grêle ou gèle -> la culture des champs est détruite
+inondation    -> pas de soupe pd 20j ATTENTION si la prod est déjà arrété les 20j s'additionnent
+incendie      -> champs détruit + pas de soupe pd 40j + si prod à l'arret les 40j s'additionnent
+
+chaque champs ou usine a un risque sur deux d'être touché par un événement climatique lorsqu'il se produit
+
+----------------------------------
+DEPLACEMENT
+----------------------------------
+Employé se déplace à pied d'un lieu à un lieu adjacent ( un jour par lieu de déplacement)
+Déplacement en tracteur lieu adjacent, lieu suivant ou encore le lieu d'après ( un jour par lieu de déplacement)
+Monter dans un tracteur: -> aller jusqu'au tracteur
+                         -> monter directement dans le tracteur
+
+L'exploitation doit comporter : -> la ferme (où arrive les tracteurs à l'achat et les employés à l'embauche )
+                                -> 5 champs numéroté de 1 à 5
+                                -> l'usine de soupe
+
+----------------------------------
+Actions possibles
+----------------------------------
+-> une ligne par action et max une action par employé et par jour
+-> les chaps entre {} sont à remplacer par leur valeur -> {gérant} = (0)
+                                                       -> {ouvrier}= supérieur ou égal à 1
+                                                       -> {legume} = PATATE, POIREAU, TOMATE, OIGNON, COURGETTE
+                                                       -> {champ} = 1 à 5
+                                                       -> {somme} = montant entier en €
+                                                       -> {tracteur} = supérieur ou égale à 1
+
+
+ACHETER UN CHAMPS -> 1° champs acheté est le champs1
+                  -> 10 000 € à l'achat
+                  -> ATTENTION : si le champs1 existe déjà alors le prochain champs acheté suivra l'ordre des numéros de champs
+
+SEMER -> semer sur un champs déjà en culture remplace la culture existante par la nouvelle
+
+ARROSER -> au moins 10 fois avant la récolte 
+        -> attention aux aléas climatiques
+
+VENDRE DES LEGUMES -> ils peuvent être vendus si le champs ne requiere pas d'arrosage au début de la journée
+                   -> ils sont vendus après la récolte qui dure 2 jours et aucunes actions ne peuvent être réalisées durant ces deux jours
+                   -> 3 000€ -50 fois le nombre de champs cultivant le même légume au moment de la vente en comptant toutes les fermes
+                   -> si aléas climatique durant la récolte alors la vente est annulée
+
+ACHETER UN TRACTEUR -> 100 kg eqCO2
+                    -> 30 000 € à l'achat
+
+STOCKER ES LÉGUMES -> peuvent être stocké si le champs ne nécéssite plus d'arrosage le matin
+                   -> stocké dans l'usine de fabrication de soupe
+                   -> Après le transport le stock de l'usine est augmenté de 2 000 pour l'espèce de légume du champ
+
+FABRIQUER DES SOUPES ET LES VENDRE -> 100 soupes par jour si ingrédients dispo
+                                   -> piochera dans les stocks de l'usine 
+                                   -> essaiera de mettre le plus grand nombre de différents légumes dans une soupe
+                                   -> les soupes sont livrées automatiquement au magasin
+                    -> vente: 1€ soupe d'un légume
+                              2€ soupe de 2 légumes
+                              4€ soupe de 3 légumes
+                              6€ soupe de 4 légumes
+                              8€ soupe de 5 légumes
+
+EMPLOYER UN OUVRIER -> le gérant emploit un ouvrier en CDI 
+                    -> un employé est payé 1 000€ le 1° mois ( 1 mois = 30 jours)
+                    -> chaque mois salaire majoré de 1% (arrondi au supérieur)
+                    -> salaire versé au 1°du mois 
+                    -> tout mois commencé est dû
+
+LICENCIER UN OUVRIER -> versement d'une indemnité au salarié égale au salaire du prochain mois 
+                     -> cumul des deux salaires et du temps travaillé dans l'entraprise 
+
+EMPRUNTER -> un emprunt dure 2 ans 
+          -> somme emprunté X 1.10 soit 5% par an 
+          -> même somme remboursé chaque mois 
+          -> somme emprunté obligatoirement positive
+
+---------------------------------
+CONDITIONS DE VICTOIRE OU DEFAITE 
+---------------------------------
+
+-> une action invalide = blocage joueur = plus d'action jusqu'à la fin du jeu
+-> un achat sans l'argent = blocage joueur 
+-> ne pas pouvoir payer les dépenses = blocage joueur
+-> le joeur ayant le plus d'argent disponible avec coût total des emprunts déduis gagne
+
+---------------------------------
+COMMENT JOUER 
+--------------------------------- 
+
+-> créer un dépôt privé en donnant l'accés au moins en lecture seul au prof
+-> créer un client permettant de se connecter au serveur du jeu
+-> doit contenir au moins une documentation minimaliste permettant de comprendre l'installation est l'utilisation du logiciel
+-> mettre en place de l'intégration continue : -> tests (pytest) automatiques (GitHub actions) avec mesures de couverture de test ( qui doit avoisiner 100%)
+                                               -> qualimétrie (avec flake8 et des plugins) pour faire un logiciel de bon niveau de qualité
+                                               -> vérification des annotations de type (avec mypy)
+                                               -> avec les mesures de couverture, qualimétrie et annotations de type, faites en sorte de refuser une pull request qui abaisserait le niveau de qualité de votre logiciel
+                                               -> eventuellement mettez en place des hooks de pré-commit 
+
+
+
+
+---------------------------------
+solde de départ = 100 000
+
+dépenses: 
+-> 1 champs = 10 000
+-> 1 tracteur = 30 000
+-> 1 employé = 1 000€ le premier mois et majoré de 1% 
+-> emprunter = remboursement sur 2 ans avec tous les mois de la même somme avec 5% d'interêt par an 
+
+rentrer d'argent:
+-> 50€ pour 1 camps cultivé 
+-> 30€ pour l'exploitation
+-> 3 000€ -50 fois le nombre de champs cultivant le même légume au moment de la vente en comptant toutes les fermes
+
+--------------------------------
+
+critères d'évaluations
+
+0.5 -> Projet lançable en ligne de commande 
+1   -> Documentation (installation des dépendances, lancement)
+0,5 -> Acheter un champs
+0.5 -> Acheter un tracteur 
+0.5 -> Employer
+1   -> Semer
+1   -> Arroser 
+1   -> Vendre des légumes
+1.5 -> Stocker
+1   -> Cuisiner
+1   -> Licencier 
+0.5 -> Emprunter 
+2   -> Ecriture de tests (pytest)
+1   -> Mesure de la couverture de test
+2   -> Pourcentage de couverture de test
+1   -> Qualimétrie (flaske8 et plugins)
+1   -> GitHub action 
+1   -> REfus de pull request / push si baisse de couverture ou qualité
+2   -> Classement compétition
+3   -> Bonus ( pré-commit, annotations de type, vérification des annotations de type)
+
