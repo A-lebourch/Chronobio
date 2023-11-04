@@ -1,9 +1,8 @@
 import argparse
 from typing import NoReturn
-
 from chronobio.network.client import Client
 
-
+# print('toto')
 class PlayerGameClient(Client):
     def __init__(
         self: "PlayerGameClient", server_addr: str, port: int, username: str
@@ -26,19 +25,16 @@ class PlayerGameClient(Client):
                 raise ValueError(f"My farm is not found ({self.username})")
             print(my_farm)
 
-            if game_data["day"] == 0:
-                self.add_command("0 EMPRUNTER 100000")
-                self.add_command("0 ACHETER_CHAMP")
-                self.add_command("0 ACHETER_CHAMP")
-                self.add_command("0 ACHETER_CHAMP")
-                self.add_command("0 ACHETER_TRACTEUR")
-                self.add_command("0 ACHETER_TRACTEUR")
-                self.add_command("0 EMPLOYER")
-                self.add_command("0 EMPLOYER")
-                self.add_command("1 SEMER PATATE 3")
-
-            if game_data["day"] == 0:
-                print(game_data)
+            # if game_data["day"] == 0:
+            #     self.add_command("0 EMPRUNTER 100000")
+            #     self.add_command("0 ACHETER_CHAMP")
+            #     self.add_command("0 ACHETER_CHAMP")
+            #     self.add_command("0 ACHETER_CHAMP")
+            #     self.add_command("0 ACHETER_TRACTEUR")
+            #     self.add_command("0 ACHETER_TRACTEUR")
+            #     self.add_command("0 EMPLOYER")
+            #     self.add_command("0 EMPLOYER")
+            #     self.add_command("1 SEMER PATATE 3")
 
             self.send_commands()
 
