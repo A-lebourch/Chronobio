@@ -2,6 +2,8 @@ import argparse
 from typing import NoReturn
 from chronobio.network.client import Client
 
+import get_data
+
 # print('toto')
 class PlayerGameClient(Client):
     def __init__(
@@ -14,7 +16,7 @@ class PlayerGameClient(Client):
         '''
         fonction run 
         '''
-
+        turn = 0
         while True:
             game_data = self.read_json()
             for farm in game_data["farms"]:
@@ -23,18 +25,59 @@ class PlayerGameClient(Client):
                     break
             else:
                 raise ValueError(f"My farm is not found ({self.username})")
-            print(my_farm)
+            get_data.observateur(game_data, self.username)
 
-            # if game_data["day"] == 0:
-            #     self.add_command("0 EMPRUNTER 100000")
-            #     self.add_command("0 ACHETER_CHAMP")
-            #     self.add_command("0 ACHETER_CHAMP")
-            #     self.add_command("0 ACHETER_CHAMP")
-            #     self.add_command("0 ACHETER_TRACTEUR")
-            #     self.add_command("0 ACHETER_TRACTEUR")
-            #     self.add_command("0 EMPLOYER")
-            #     self.add_command("0 EMPLOYER")
-            #     self.add_command("1 SEMER PATATE 3")
+            if game_data["day"] == 0:
+                self.add_command("0 EMPRUNTER 100000")
+                self.add_command("0 ACHETER_TRACTEUR")
+                self.add_command("0 ACHETER_TRACTEUR")
+                self.add_command("0 ACHETER_TRACTEUR")
+                self.add_command("0 ACHETER_CHAMP")
+                self.add_command("0 ACHETER_CHAMP")
+                self.add_command("0 ACHETER_CHAMP")
+                self.add_command("0 ACHETER_CHAMP")
+                self.add_command("0 ACHETER_CHAMP")
+                for i in range(17):
+                    self.add_command("0 EMPLOYER")
+
+            if game_data["day"] == 1 + turn * 10:
+                self.add_command("11 SEMER TOMATE 3")
+
+            if game_data["day"] == 2 + turn * 10:
+
+                for i in range(10):
+                    string = str(i+1) + " ARROSER 3"
+                    self.add_command(string)
+
+            if game_data["day"] == 4 + turn * 10:
+                self.add_command("11 SEMER PATATE 4")
+
+            if game_data["day"] == 6 + turn * 10:
+                self.add_command("12 STOCKER 3 1")
+                self.add_command("11 SEMER COURGETTE 5")
+                for i in range(10):
+                    string = str(i+1) + " ARROSER 4"
+                    self.add_command(string)
+
+            if game_data["day"] == 8 + turn * 10:
+                self.add_command("13 STOCKER 4 2")
+                for i in range(10):
+                    string = str(i+1) + " ARROSER 5"
+                    self.add_command(string)
+
+            if game_data["day"] == 10 + turn * 10:
+                self.add_command("14 STOCKER 5 3")
+                turn += 1
+
+            if game_data["day"] == 11:
+                self.add_command("15 CUISINER")
+                self.add_command("16 CUISINER")
+                self.add_command("17 CUISINER")
+
+            if game_data["day"] > 18:
+                self.add_command("15 CUISINER")
+                self.add_command("16 CUISINER")
+                self.add_command("17 CUISINER")
 
             self.send_commands()
 
