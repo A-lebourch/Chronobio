@@ -67,7 +67,7 @@ def test_can_harvest_sell_4():
 
 def test_sow():
     field = Field(Location.FIELD1)
-    field.sow()
+    field.sow(Aliment.POTATO)
     assert not field.is_sowable()
 
 
