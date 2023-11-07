@@ -12,8 +12,8 @@ repos:
     -   id: black
         args: ['--include', '\.py$']
 
-  # - repo: https://github.com/pycqa/flake8
-  #   rev: 34cbf8e
-  #   hooks:
-  #   -   id: flake8
-  #       args: ['--filename=*.py', '--ignore=E501']
+  - repo: https://github.com/pycqa/flake8
+    rev: 34cbf8e
+    hooks:
+    -   id: flake8
+        args: ['--filename=*.py']
