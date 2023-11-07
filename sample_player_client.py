@@ -19,6 +19,7 @@ class PlayerGameClient(Client):
         turn = 0
         while True:
             game_data = self.read_json()
+            # game data w pydantic
             for farm in game_data["farms"]:
                 if farm["name"] == self.username:
                     my_farm = farm
