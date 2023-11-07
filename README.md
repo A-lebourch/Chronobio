@@ -11,12 +11,12 @@ git clone https://github.com/A-lebourch/Chronobio.git
 
 ```bash
 pip install -r requirements.txt
-sudo pip3 install virtualenv 
+sudo pip3 install virtualenv
  ```
 
  ## lancer en utilisant competition.sh
 
- installer un venv 
+ installer un venv
 ```bash
  python3 -m venv my_venv
  ```

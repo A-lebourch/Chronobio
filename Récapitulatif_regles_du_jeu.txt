@@ -1,5 +1,5 @@
 ---------------------------------
-CHAQUE JOUR 
+CHAQUE JOUR
 ---------------------------------
 chaque jour financement de : -> 50€ par champ cultivé
                              -> 30€ pour l'exploitation
@@ -41,7 +41,7 @@ ACHETER UN CHAMPS -> 1° champs acheté est le champs1
 
 SEMER -> semer sur un champs déjà en culture remplace la culture existante par la nouvelle
 
-ARROSER -> au moins 10 fois avant la récolte 
+ARROSER -> au moins 10 fois avant la récolte
         -> attention aux aléas climatiques
 
 VENDRE DES LEGUMES -> ils peuvent être vendus si le champs ne requiere pas d'arrosage au début de la journée
@@ -57,7 +57,7 @@ STOCKER ES LÉGUMES -> peuvent être stocké si le champs ne nécéssite plus d'
                    -> Après le transport le stock de l'usine est augmenté de 2 000 pour l'espèce de légume du champ
 
 FABRIQUER DES SOUPES ET LES VENDRE -> 100 soupes par jour si ingrédients dispo
-                                   -> piochera dans les stocks de l'usine 
+                                   -> piochera dans les stocks de l'usine
                                    -> essaiera de mettre le plus grand nombre de différents légumes dans une soupe
                                    -> les soupes sont livrées automatiquement au magasin
                     -> vente: 1€ soupe d'un légume
@@ -66,32 +66,32 @@ FABRIQUER DES SOUPES ET LES VENDRE -> 100 soupes par jour si ingrédients dispo
                               6€ soupe de 4 légumes
                               8€ soupe de 5 légumes
 
-EMPLOYER UN OUVRIER -> le gérant emploit un ouvrier en CDI 
+EMPLOYER UN OUVRIER -> le gérant emploit un ouvrier en CDI
                     -> un employé est payé 1 000€ le 1° mois ( 1 mois = 30 jours)
                     -> chaque mois salaire majoré de 1% (arrondi au supérieur)
-                    -> salaire versé au 1°du mois 
+                    -> salaire versé au 1°du mois
                     -> tout mois commencé est dû
 
-LICENCIER UN OUVRIER -> versement d'une indemnité au salarié égale au salaire du prochain mois 
-                     -> cumul des deux salaires et du temps travaillé dans l'entraprise 
+LICENCIER UN OUVRIER -> versement d'une indemnité au salarié égale au salaire du prochain mois
+                     -> cumul des deux salaires et du temps travaillé dans l'entraprise
 
-EMPRUNTER -> un emprunt dure 2 ans 
-          -> somme emprunté X 1.10 soit 5% par an 
-          -> même somme remboursé chaque mois 
+EMPRUNTER -> un emprunt dure 2 ans
+          -> somme emprunté X 1.10 soit 5% par an
+          -> même somme remboursé chaque mois
           -> somme emprunté obligatoirement positive
 
 ---------------------------------
-CONDITIONS DE VICTOIRE OU DEFAITE 
+CONDITIONS DE VICTOIRE OU DEFAITE
 ---------------------------------
 
 -> une action invalide = blocage joueur = plus d'action jusqu'à la fin du jeu
--> un achat sans l'argent = blocage joueur 
+-> un achat sans l'argent = blocage joueur
 -> ne pas pouvoir payer les dépenses = blocage joueur
 -> le joeur ayant le plus d'argent disponible avec coût total des emprunts déduis gagne
 
 ---------------------------------
-COMMENT JOUER 
---------------------------------- 
+COMMENT JOUER
+---------------------------------
 
 -> créer un dépôt privé en donnant l'accés au moins en lecture seul au prof
 -> créer un client permettant de se connecter au serveur du jeu
@@ -100,7 +100,7 @@ COMMENT JOUER
                                                -> qualimétrie (avec flake8 et des plugins) pour faire un logiciel de bon niveau de qualité
                                                -> vérification des annotations de type (avec mypy)
                                                -> avec les mesures de couverture, qualimétrie et annotations de type, faites en sorte de refuser une pull request qui abaisserait le niveau de qualité de votre logiciel
-                                               -> eventuellement mettez en place des hooks de pré-commit 
+                                               -> eventuellement mettez en place des hooks de pré-commit
 
 
 
@@ -108,14 +108,14 @@ COMMENT JOUER
 ---------------------------------
 solde de départ = 100 000
 
-dépenses: 
+dépenses:
 -> 1 champs = 10 000
 -> 1 tracteur = 30 000
--> 1 employé = 1 000€ le premier mois et majoré de 1% 
--> emprunter = remboursement sur 2 ans avec tous les mois de la même somme avec 5% d'interêt par an 
+-> 1 employé = 1 000€ le premier mois et majoré de 1%
+-> emprunter = remboursement sur 2 ans avec tous les mois de la même somme avec 5% d'interêt par an
 
 rentrer d'argent:
--> 50€ pour 1 camps cultivé 
+-> 50€ pour 1 camps cultivé
 -> 30€ pour l'exploitation
 -> 3 000€ -50 fois le nombre de champs cultivant le même légume au moment de la vente en comptant toutes les fermes
 
@@ -123,24 +123,23 @@ rentrer d'argent:
 
 critères d'évaluations
 
-0.5 -> Projet lançable en ligne de commande 
+0.5 -> Projet lançable en ligne de commande
 1   -> Documentation (installation des dépendances, lancement)
 0,5 -> Acheter un champs
-0.5 -> Acheter un tracteur 
+0.5 -> Acheter un tracteur
 0.5 -> Employer
 1   -> Semer
-1   -> Arroser 
+1   -> Arroser
 1   -> Vendre des légumes
 1.5 -> Stocker
 1   -> Cuisiner
-1   -> Licencier 
-0.5 -> Emprunter 
+1   -> Licencier
+0.5 -> Emprunter
 2   -> Ecriture de tests (pytest)
 1   -> Mesure de la couverture de test
 2   -> Pourcentage de couverture de test
 1   -> Qualimétrie (flaske8 et plugins)
-1   -> GitHub action 
+1   -> GitHub action
 1   -> REfus de pull request / push si baisse de couverture ou qualité
 2   -> Classement compétition
 3   -> Bonus ( pré-commit, annotations de type, vérification des annotations de type)
-

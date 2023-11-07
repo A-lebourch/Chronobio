@@ -6,7 +6,13 @@ from algorithme.modules.locations import Location
 class Owner:
     def __init__(self):
         self.money = 100_000
-        self.fields: list[Field] = [Field(Location.FIELD1), Field(Location.FIELD2), Field(Location.FIELD3), Field(Location.FIELD4), Field(Location.FIELD5)]
+        self.fields: list[Field] = [
+            Field(Location.FIELD1),
+            Field(Location.FIELD2),
+            Field(Location.FIELD3),
+            Field(Location.FIELD4),
+            Field(Location.FIELD5),
+        ]
         self.employees: list[Employee] = []
         self.day_invalid: int = 0
 
@@ -61,7 +67,7 @@ class Owner:
         else:
             return False
 
-# ################################### 
+    # ###################################
 
     def employee_location(self):
         pass

@@ -13,9 +13,9 @@ class PlayerGameClient(Client):
         self._commands: list[str] = []
 
     def run(self: "PlayerGameClient") -> NoReturn:
-        '''
-        fonction run 
-        '''
+        """
+        fonction run
+        """
         turn = 0
         while True:
             game_data = self.read_json()
@@ -47,7 +47,7 @@ class PlayerGameClient(Client):
             if game_data["day"] == 2 + turn * 10:
 
                 for i in range(10):
-                    string = str(i+1) + " ARROSER 3"
+                    string = str(i + 1) + " ARROSER 3"
                     self.add_command(string)
 
             if game_data["day"] == 4 + turn * 10:
@@ -57,13 +57,13 @@ class PlayerGameClient(Client):
                 self.add_command("12 STOCKER 3 1")
                 self.add_command("11 SEMER COURGETTE 5")
                 for i in range(10):
-                    string = str(i+1) + " ARROSER 4"
+                    string = str(i + 1) + " ARROSER 4"
                     self.add_command(string)
 
             if game_data["day"] == 8 + turn * 10:
                 self.add_command("13 STOCKER 4 2")
                 for i in range(10):
-                    string = str(i+1) + " ARROSER 5"
+                    string = str(i + 1) + " ARROSER 5"
                     self.add_command(string)
 
             if game_data["day"] == 10 + turn * 10:
