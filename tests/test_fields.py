@@ -1,6 +1,6 @@
-from algorithme.field import Field
-from algorithme.locations import Location
-from algorithme.aliments import Aliment
+from algorithme.modules.field import Field
+from algorithme.modules.locations import Location
+from algorithme.modules.aliments import Aliment
 
 
 def test_is_sowable_1():
