@@ -17,3 +17,8 @@ repos:
     hooks:
     -   id: flake8
         args: ['--filename=*.py']
+
+  - repo: https://github.com/pre-commit/mirrors-mypy
+    rev: 26de894
+    hooks:
+    -   id: mypy
