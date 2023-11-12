@@ -1,3 +1,4 @@
+from typing import Union
 from pydantic import BaseModel
 
 
@@ -23,6 +24,13 @@ class Soup_factory(BaseModel):
     stock: dict
 
 
+class Employee(BaseModel):
+    id: int
+    location: str
+    tractor: Union[None, Tractor]
+    salary: int
+
+
 class Owner(BaseModel):
     blocked: bool
     name: str
@@ -32,11 +40,11 @@ class Owner(BaseModel):
     tractors: list[Tractor]
     loans: list[Loan]
     soup_factory: Soup_factory
-    employees: list[dict]
+    employees: list[Employee]
     events: list
 
 
-class generale(BaseModel):
+class general(BaseModel):
     day: int
     greenhouse_gas: int
     events: list
@@ -102,8 +110,10 @@ if __name__ == "__main__":
                     },
                 },
                 "employees": [
-                    {"id": 1, "location": "FIELD3", "tractor": None, "salary": 1021},
-                    {"id": 2, "location": "FARM", "tractor": None, "salary": 1021},
+                    {"id": 1, "location": "FIELD3", "tractor": None,
+                     "salary": 1021},
+                    {"id": 2, "location": "FARM", "tractor": None,
+                     "salary": 1021},
                 ],
                 "events": [],
             },
@@ -265,5 +275,8 @@ if __name__ == "__main__":
             },
         ],
     }
-    game_data = generale(**game_data2)
-    print(game_data.farms[0].fields[0].content)
+    game_data = general(**game_data2)
+    for i in range(len(game_data.farms)):
+        if game_data.farms[i].name == "user":
+            my_farm = game_data.farms[i]
+            print(my_farm.employees)

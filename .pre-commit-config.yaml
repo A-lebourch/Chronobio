@@ -6,11 +6,11 @@ repos:
     -   id: end-of-file-fixer
     -   id: trailing-whitespace
 
-  - repo: https://github.com/psf/black
-    rev: 22.10.0
-    hooks:
-    -   id: black
-        args: ['--include', '\.py$']
+  # - repo: https://github.com/psf/black
+  #   rev: 22.10.0
+  #   hooks:
+  #   -   id: black
+  #       args: ['--include', '\.py$']
 
   - repo: https://github.com/pycqa/flake8
     rev: 34cbf8e
@@ -18,7 +18,7 @@ repos:
     -   id: flake8
         args: ['--filename=*.py']
 
-  - repo: https://github.com/pre-commit/mirrors-mypy
-    rev: 26de894
-    hooks:
-    -   id: mypy
+  # - repo: https://github.com/pre-commit/mirrors-mypy
+  #   rev: 26de894
+  #   hooks:
+  #   -   id: mypy

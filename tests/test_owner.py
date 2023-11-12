@@ -1,7 +1,5 @@
 from algorithme.modules.owner import Owner
-from algorithme.modules.locations import Location
 from algorithme.modules.aliments import Aliment
-from algorithme.modules.employees import Employee
 
 
 def test_can_sell_field_1():
@@ -117,6 +115,3 @@ def test_sell_field_3():
         owner.fields[index_field].water()
     owner.day_invalid = 1
     assert not owner.sell_field(index_field)
-
-
-# TODO tester si le owner est déjà occupé, dans ce cas on ne peut pas vendre
