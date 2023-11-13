@@ -4,6 +4,10 @@ from algorithme.modules.locations import Location
 
 
 class Owner:
+    """
+    a class for farm owner
+    """
+
     def __init__(self):
         self.money = 100_000
         self.fields: list[Field] = [
@@ -61,13 +65,11 @@ class Owner:
         if self.can_hire():
             self.employees.append(Employee())
 
-    def can_fire(self):
-        if self.day_invalid == 0:
-            return self.emp_time >= 15
-        else:
-            return False
+    # def can_fire(self):
+    #     if self.day_invalid == 0:
+    #         return self.emp_time >= 15
+    #     else:
+    #         return False
 
-    # ###################################
-
-    def employee_location(self):
+    def employee_add_order(self, order, employee):
         pass
