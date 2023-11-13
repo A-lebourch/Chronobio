@@ -1,2 +1,1 @@
-cd algorithme
-python3 client.py -u LAVABEAU -p $1
+python3 -m algorithme.client -u LAVABEAU -p $1
