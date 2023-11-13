@@ -37,9 +37,9 @@ class Strategy:
         if self.game_data.day == 0:
             self.add_commands(ord.emprunter(100_000))
             for i in range(3):
-                self.add_commands(ord.acheter_tracteur)
+                self.add_commands(ord.acheter_tracteur())
             for i in range(5):
-                self.add_commands(ord.acheter_champ)
+                self.add_commands(ord.acheter_champ())
         for field in range(len(self.fields)):
             field = Field()
             field.water_lvl = self.my_fields[field].needed_water
@@ -51,9 +51,9 @@ class Strategy:
         if self.game_data.day == 0:
             self.add_commands(ord.emprunter(100_000))
             for i in range(3):
-                self.add_commands(ord.acheter_tracteur)
+                self.add_commands(ord.acheter_tracteur())
             for i in range(5):
-                self.add_commands(ord.acheter_champ)
+                self.add_commands(ord.acheter_champ())
 
         if len(self.my_farm.employees) > 0:
             if self.my_farm.employees[0].salary >= 1161:
