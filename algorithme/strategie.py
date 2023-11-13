@@ -114,7 +114,7 @@ class Strategy:
                     self.add_commands(str(16 + self.turnover * 17) + " CUISINER")
                     self.add_commands(str(17 + self.turnover * 17) + " CUISINER")
 
-                if self.game_data.day > self.start_day + 18:
+                if self.game_data.day > self.start_day + 50:
                     self.add_commands(str(15 + self.turnover * 17) + " CUISINER")
                     self.add_commands(str(16 + self.turnover * 17) + " CUISINER")
                     self.add_commands(str(17 + self.turnover * 17) + " CUISINER")
