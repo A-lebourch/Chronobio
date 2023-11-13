@@ -2,6 +2,10 @@ def acheter_champ():
     return "0 ACHETER_CHAMP"
 
 
+def arroser(ouvrier, champ):
+    return str(ouvrier) + " ARROSER " + str(champ) + str(champ)
+
+
 def semer(ouvrier, legume, champ):
     return str(ouvrier) + " SEMER " + legume + str(champ)
 
@@ -27,8 +31,8 @@ def employer():
 
 
 def licencier(ouvrier):
-    return "0 LICENCIER" + str(ouvrier)
+    return "0 LICENCIER " + str(ouvrier)
 
 
 def emprunter(somme):
-    return "0 LICENCIER" + str(somme)
+    return "0 EMPRUNTER " + str(somme)
