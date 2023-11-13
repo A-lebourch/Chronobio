@@ -109,7 +109,7 @@ class Strategy:
                     self.add_commands(str(14 + self.turnover * 17) + " STOCKER 5 3")
                     self.turn += 1
 
-                if self.game_data.day < self.start_day + 100:
+                if self.game_data.day < self.start_day + 99:
                     if (
                         self.game_data.day == self.start_day + 11 + self.turn * 10
                         or self.game_data.day == self.start_day + 12 + self.turn * 10
@@ -119,7 +119,7 @@ class Strategy:
                         self.add_commands(str(16 + self.turnover * 17) + " CUISINER")
                         self.add_commands(str(17 + self.turnover * 17) + " CUISINER")
 
-                if self.game_data.day > self.start_day + 100:
+                if self.game_data.day > self.start_day + 101:
                     self.add_commands(str(15 + self.turnover * 17) + " CUISINER")
                     self.add_commands(str(16 + self.turnover * 17) + " CUISINER")
                     self.add_commands(str(17 + self.turnover * 17) + " CUISINER")
