@@ -3,8 +3,6 @@ from algorithme.modules.employees import Employee
 from algorithme.modules.field import Field
 from algorithme.modules.owner import Owner
 import algorithme.modules.order as ord
-from algorithme.modules.aliments import Aliments
-from algorithme.modules.location import Location
 from random import choice
 
 
