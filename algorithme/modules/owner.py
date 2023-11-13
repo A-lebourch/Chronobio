@@ -42,9 +42,9 @@ class Owner:
     def sell_field(self, field_index):
         if self.can_sell_field(field_index):
             self.day_invalid = 2
-            return 1
+            return True
         else:
-            return 0
+            return False
 
     def can_buy_field(self):
         if self.day_invalid == 0:
