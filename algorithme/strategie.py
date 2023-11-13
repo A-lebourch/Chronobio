@@ -93,6 +93,8 @@ class Strategy:
                         self.add_commands(
                             str(i + 1 + self.turnover * 17) + " ARROSER 4"
                         )
+
+                if self.game_data.day == self.start_day + 5 + self.turn * 10:
                     self.add_commands(str(12 + self.turnover * 17) + " STOCKER 3 1")
 
                 if self.game_data.day == self.start_day + 6 + self.turn * 10:
