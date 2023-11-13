@@ -77,37 +77,40 @@ class Strategy:
                     self.add_commands(
                         str(11 + self.turnover * 17) + " SEMER " + plantation + " 3"
                     )
-
-                if self.game_data.day == self.start_day + 2 + self.turn * 10:
                     for i in range(10):
-                        string = str(i + 1 + self.turnover * 17) + " ARROSER 3"
-                        self.add_commands(string)
+                        self.add_commands(
+                            str(i + 1 + self.turnover * 17) + " ARROSER 3"
+                        )
+
+                # if self.game_data.day == self.start_day + 2 + self.turn * 10:
 
                 if self.game_data.day == self.start_day + 4 + self.turn * 10:
                     self.legume += 1
                     self.add_commands(
                         str(11 + self.turnover * 17) + " SEMER " + plantation + " 4"
                     )
+                    for i in range(10):
+                        self.add_commands(
+                            str(i + 1 + self.turnover * 17) + " ARROSER 4"
+                        )
+                    self.add_commands(str(12 + self.turnover * 17) + " STOCKER 3 1")
 
                 if self.game_data.day == self.start_day + 6 + self.turn * 10:
-                    self.add_commands(str(12 + self.turnover * 17) + " STOCKER 3 1")
                     self.legume += 1
                     self.add_commands(
                         str(11 + self.turnover * 17) + " SEMER " + plantation + " 5"
                     )
                     for i in range(10):
-                        string = str(i + 1 + self.turnover * 17) + " ARROSER 4"
-                        self.add_commands(string)
+                        self.add_commands(
+                            str(i + 1 + self.turnover * 17) + " ARROSER 5"
+                        )
+                    self.add_commands(str(13 + self.turnover * 17) + " STOCKER 4 2")
 
                 if self.game_data.day == self.start_day + 8 + self.turn * 10:
-                    self.add_commands(str(13 + self.turnover * 17) + " STOCKER 4 2")
-                    for i in range(10):
-                        string = str(i + 1 + self.turnover * 17) + " ARROSER 5"
-                        self.add_commands(string)
-
-                if self.game_data.day == self.start_day + 10 + self.turn * 10:
                     self.add_commands(str(14 + self.turnover * 17) + " STOCKER 5 3")
                     self.turn += 1
+
+                # if self.game_data.day == self.start_day + 10 + self.turn * 10:
 
                 if self.game_data.day == self.start_day + 23:
                     self.add_commands(str(15 + self.turnover * 17) + " CUISINER")
