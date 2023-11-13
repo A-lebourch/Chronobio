@@ -71,11 +71,9 @@ class Strategy:
 
         if len(self.my_farm.employees) > 0:
             plantation = self.aliments[self.legume]
-            self.legume += 1
-            if self.legume == 5:
-                self.legume = 0
             if self.my_farm.employees[0].salary < 1161:
                 if self.game_data.day == self.start_day + 1 + self.turn * 10:
+                    self.legume += 1
                     self.add_commands(
                         str(11 + self.turnover * 17) + " SEMER " + plantation + " 3"
                     )
@@ -86,12 +84,14 @@ class Strategy:
                         self.add_commands(string)
 
                 if self.game_data.day == self.start_day + 4 + self.turn * 10:
+                    self.legume += 1
                     self.add_commands(
                         str(11 + self.turnover * 17) + " SEMER " + plantation + " 4"
                     )
 
                 if self.game_data.day == self.start_day + 6 + self.turn * 10:
                     self.add_commands(str(12 + self.turnover * 17) + " STOCKER 3 1")
+                    self.legume += 1
                     self.add_commands(
                         str(11 + self.turnover * 17) + " SEMER " + plantation + " 5"
                     )
@@ -118,3 +118,6 @@ class Strategy:
                     self.add_commands(str(15 + self.turnover * 17) + " CUISINER")
                     self.add_commands(str(16 + self.turnover * 17) + " CUISINER")
                     self.add_commands(str(17 + self.turnover * 17) + " CUISINER")
+
+                if self.legume == 5:
+                    self.legume = 0
