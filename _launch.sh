@@ -1,1 +1,2 @@
-python3 sample_player_client.py -u user -p $1
+cd module
+python3 client.py -u LAVABEAU -p $1

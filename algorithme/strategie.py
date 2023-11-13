@@ -1,4 +1,4 @@
-from .modules.data_form import general
+from .modules.data_form import General
 
 
 class Strategy:
@@ -12,7 +12,7 @@ class Strategy:
         self.turnover = 0
 
     def get_data(self):
-        self.game_data = general(**self.game_data)
+        self.game_data = General(**self.game_data)
         for i in range(len(self.game_data.farms)):
             if self.game_data.farms[i].name == self.username:
                 self.my_farm = self.game_data.farms[i]

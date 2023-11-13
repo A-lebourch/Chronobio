@@ -19,7 +19,7 @@ class Loan(BaseModel):
     start_day: int
 
 
-class Soup_factory(BaseModel):
+class SoupFactory(BaseModel):
     days_off: int
     stock: dict
 
@@ -39,7 +39,7 @@ class Owner(BaseModel):
     fields: list[Field]
     tractors: list[Tractor]
     loans: list[Loan]
-    soup_factory: Soup_factory
+    soup_factory: SoupFactory
     employees: list[Employee]
     events: list
 
