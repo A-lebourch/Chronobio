@@ -7,6 +7,7 @@ from algorithme.modules.aliments import Aliments
 from algorithme.modules.location import Location
 from random import choice
 
+
 class Strategy:
     def __init__(self, username):
         self.game_data = None
@@ -40,14 +41,11 @@ class Strategy:
                 self.add_commands(ord.acheter_tracteur)
             for i in range(5):
                 self.add_commands(ord.acheter_champ)
-        for field in range(len(self.fields)) :
+        for field in range(len(self.fields)):
             field = Field()
             field.water_lvl = self.my_fields[field].needed_water
             field.content = self.my_fields[field].content
-            if field.needed_water():
-                
-            
-            
+            # if field.needed_water():
 
     def main_pas_propre(self):
         self.get_data()
@@ -80,7 +78,9 @@ class Strategy:
             plantation = choice(self.aliments)
             if self.my_farm.employees[0].salary < 1161:
                 if self.game_data.day == self.start_day + 1 + self.turn * 10:
-                    self.add_commands(str(11 + self.turnover * 17) + " SEMER " + plantation + " 3")
+                    self.add_commands(
+                        str(11 + self.turnover * 17) + " SEMER " + plantation + " 3"
+                    )
 
                 if self.game_data.day == self.start_day + 2 + self.turn * 10:
                     for i in range(10):
@@ -88,7 +88,9 @@ class Strategy:
                         self.add_commands(string)
 
                 if self.game_data.day == self.start_day + 4 + self.turn * 10:
-                    self.add_commands(str(11 + self.turnover * 17) + " SEMER " + plantation + " 4")
+                    self.add_commands(
+                        str(11 + self.turnover * 17) + " SEMER " + plantation + " 4"
+                    )
 
                 if self.game_data.day == self.start_day + 6 + self.turn * 10:
                     self.add_commands(str(12 + self.turnover * 17) + " STOCKER 3 1")
