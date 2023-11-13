@@ -225,4 +225,4 @@ game_data2 = {
 
 def test_get_data():
     game_data = General(**game_data2)
-    assert game_data.farms[0].fields[0].content is None
+    assert game_data.farms[0].fields[0].content == "POTATO"
