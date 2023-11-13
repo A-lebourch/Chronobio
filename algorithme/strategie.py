@@ -1,7 +1,7 @@
 from algorithme.modules.data_form import General
 from algorithme.modules.employees import Employee
 from algorithme.modules.field import Field
-from algorithme.modules.owner import Owner
+from algorithme.modules.owner import Owner, all_vegetables
 import algorithme.modules.order as ord
 from random import choice
 
@@ -114,7 +114,14 @@ class Strategy:
                     self.add_commands(str(16 + self.turnover * 17) + " CUISINER")
                     self.add_commands(str(17 + self.turnover * 17) + " CUISINER")
 
-                if self.game_data.day > self.start_day + 100:
+                if self.game_data.day > 1600:
+                    self.add_commands(str(15 + self.turnover * 17) + " CUISINER")
+                    self.add_commands(str(16 + self.turnover * 17) + " CUISINER")
+                    self.add_commands(str(17 + self.turnover * 17) + " CUISINER")
+
+                elif self.game_data.day == self.start_day + 18 and all_vegetables(
+                    self.my_farm.soup_factory
+                ):
                     self.add_commands(str(15 + self.turnover * 17) + " CUISINER")
                     self.add_commands(str(16 + self.turnover * 17) + " CUISINER")
                     self.add_commands(str(17 + self.turnover * 17) + " CUISINER")
