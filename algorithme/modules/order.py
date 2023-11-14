@@ -3,15 +3,15 @@ def acheter_champ():
 
 
 def arroser(ouvrier, champ):
-    return str(ouvrier) + " ARROSER " + str(champ) + str(champ)
+    return str(ouvrier) + " ARROSER " + str(champ)
 
 
 def semer(ouvrier, legume, champ):
-    return str(ouvrier) + " SEMER " + legume + str(champ)
+    return str(ouvrier) + " SEMER " + legume + " " + str(champ)
 
 
-def vendre(ouvrier, champ):
-    return str(ouvrier) + " VENDRE " + str(champ)
+def vendre(champ):
+    return "0 VENDRE " + str(champ)
 
 
 def acheter_tracteur():
@@ -19,7 +19,7 @@ def acheter_tracteur():
 
 
 def stocker(ouvrier, champ, tracteur):
-    return str(ouvrier) + " STOCKER " + str(champ) + str(tracteur)
+    return str(ouvrier) + " STOCKER " + str(champ) + " " + str(tracteur)
 
 
 def cuisiner(ouvrier):

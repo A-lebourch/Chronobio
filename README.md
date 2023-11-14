@@ -28,6 +28,6 @@ run le code
  ```bash
  cd chronobio
 
- ./competition.sh
+ . competition.sh
 
  ```
