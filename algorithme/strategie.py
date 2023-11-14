@@ -43,10 +43,11 @@ class Strategy:
                 if owner.can_buy_tractor():
                     owner.money -= 30_000
                 self.add_commands(ord.acheter_tracteur())
+
             for i in range(5):
-                if owner.can_buy_field():
-                    self.add_commands(ord.acheter_champ())
-                    owner.money -= 5000
+                # if owner.can_buy_field():
+                self.add_commands(ord.acheter_champ())
+                # owner.money -= 5000
 
         if self.my_farm.fields[4].bought:
             for i in range(len(self.my_fields)):
