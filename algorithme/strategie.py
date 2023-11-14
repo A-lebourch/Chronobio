@@ -60,13 +60,13 @@ class Strategy:
                     owner.money -= 1000
                     self.add_commands("0 EMPLOYER")
 
-        if len(self.my_farm.employees) > 0:
-            if owner.can_fire(0):
-                # self.add_commands("0 EMPRUNTER 20000")
-                for i in range(nb_employee):
-                    self.add_commands(
-                        "0 LICENCIER " + str(i + 1 + self.turnover * nb_employee)
-                    )
+                # if len(self.my_farm.employees) > 0:
+                #     if owner.can_fire(0 ):
+                #         # self.add_commands("0 EMPRUNTER 20000")
+                #         for i in range(nb_employee):
+                #             self.add_commands(
+                #                 "0 LICENCIER " + str(i + 1 + self.turnover * nb_employee)
+                #             )
 
                 self.start_day = self.game_data.day + 2
                 self.turn = 0
