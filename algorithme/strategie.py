@@ -32,15 +32,18 @@ class Strategy:
     def add_commands(self, command):
         self.commands.append(command)
 
-    def update_field(self, i):
+    def update_field(self, field_index):
         field = Field()
-        field.water_lvl = self.my_fields[i].needed_water
-        field.content = self.my_fields[i].content
+        field.water_lvl = self.my_fields[field_index].needed_water
+        field.content = self.my_fields[field_index].content
         return field
 
     def main_propre(self):
-        nb_employee = 22
         self.get_data()
+        print("#" * 80)
+        print(self.game_data)
+        print(self.game_data.day, self.start_day)
+        nb_employee = 22
         owner = Owner()
         owner.money = self.my_farm.money
         if self.game_data.day == 0:
@@ -58,7 +61,7 @@ class Strategy:
         if self.my_farm.fields[4].bought:
             for i in range(len(self.my_fields)):
                 field = self.update_field(i)
-                print(field.needed_water())
+                # print(field.needed_water())
 
         if self.game_data.day == 0:
             for i in range(nb_employee):
@@ -78,84 +81,106 @@ class Strategy:
                 self.turn = 0
                 self.turnover += 1
 
-        if self.game_data.day == self.start_day + 1:
-            field = self.update_field(0)
+        if self.start_day + 1 <= self.game_data.day <= self.start_day + 4:
+            field_index = self.game_data.day - (self.start_day + 1)
+            field = self.update_field(field_index)
             if field.is_sowable():
-                self.add_commands(ord.semer(1, self.aliments[self.legume], 1))
+                self.add_commands(
+                    ord.semer(1, self.aliments[self.legume], field_index + 1)
+                )
                 self.legume += 1
+                self.legume %= 5
 
-        if self.game_data.day == self.start_day + 2:
-            field = self.update_field(1)
-            if field.is_sowable():
-                self.add_commands(ord.semer(1, self.aliments[self.legume], 2))
-                self.legume += 1
-
-            field = self.update_field(0)
+        if self.start_day + 2 <= self.game_data.day <= self.start_day + 4:
+            field_index = self.game_data.day - (self.start_day + 2)
+            field = self.update_field(field_index)
             if field.needed_water():
                 for i in range(10):
-                    self.add_commands(ord.arroser(i + 2, 1))
+                    self.add_commands(ord.arroser(i + 2, field_index + 1))
 
-        if self.game_data.day == self.start_day + 3:
-            field = self.update_field(2)
-            if field.is_sowable():
-                self.add_commands(ord.semer(1, self.aliments[self.legume], 3))
-                self.legume += 1
-
-            field = self.update_field(1)
-            if field.needed_water():
-                for i in range(10):
-                    self.add_commands(ord.arroser(i + 2, 2))
-
-            field = self.update_field(0)
+        if self.start_day + 3 <= self.game_data.day <= self.start_day + 4:
+            field_index = self.game_data.day - (self.start_day + 3)
+            field = self.update_field(field_index)
             if field.can_harvest_sell():
-                self.add_commands(ord.stocker(12, 1, 1))
+                self.add_commands(
+                    ord.stocker(12 + field_index, field_index + 1, field_index + 1)
+                )
 
-        if self.game_data.day == self.start_day + 4:
-            field = self.update_field(3)
-            if field.is_sowable():
-                self.add_commands(ord.semer(1, self.aliments[self.legume], 4))
-                self.legume += 1
+        if self.game_data.day >= self.start_day + 5:
+            jour_rose = (self.game_data.day - (self.start_day + 5)) % 4
+            print("jour rose", jour_rose)
+            if jour_rose == 0:
+                water_field_id = 4
+            if jour_rose == 1:
+                water_field_id = 5
+            if jour_rose == 2:
+                water_field_id = 3
+            if jour_rose <= 2:
+                field = self.update_field(water_field_id - 1)
+                if field.needed_water():
+                    for employee_id in range(2, 12):
+                        self.add_commands(ord.arroser(employee_id, water_field_id))
 
-            field = self.update_field(0)
-            field = self.update_field(2)
+            if jour_rose == 0:
+                sow_field_id = 5
+            if jour_rose == 1:
+                sow_field_id = 3
+            if jour_rose == 3:
+                sow_field_id = 4
+            if jour_rose in (0, 1, 3):
+                field = self.update_field(sow_field_id - 1)
+                if field.is_sowable():
+                    self.add_commands(
+                        ord.semer(1, self.aliments[self.legume], sow_field_id)
+                    )
+                    self.legume += 1
+                    self.legume %= 5
 
-            if field.needed_water():
-                for i in range(10):
-                    self.add_commands(ord.arroser(i + 2, 3))
+            if jour_rose == 0:
+                stock_field_id = 3
+                stock_farmer_id = 14
+            if jour_rose == 1:
+                stock_field_id = 4
+                stock_farmer_id = 12
+            if jour_rose == 2:
+                stock_field_id = 5
+                stock_farmer_id = 13
+            if jour_rose in (0, 1, 2):
+                field = self.update_field(stock_field_id - 1)
+                if field.can_harvest_sell():
+                    self.add_commands(
+                        ord.stocker(
+                            stock_farmer_id, stock_field_id, stock_farmer_id - 11
+                        )
+                    )
 
-            field = self.update_field(1)
+        # if self.game_data.day == self.start_day + 5:
+        #     field = self.update_field(4)
+        #     if field.is_sowable():
+        #         self.add_commands(ord.semer(1, self.aliments[self.legume], 5))
+        #         self.legume += 1
+        #         self.legume %= 5
 
-            if field.can_harvest_sell():
-                self.add_commands(ord.stocker(13, 2, 2))
+        #     field = self.update_field(0)
+        #     if field.is_sowable():
+        #         self.add_commands(ord.semer(15, self.aliments[self.legume], 1))
+        #         self.legume += 1
+        #         self.legume %= 5
 
-        if self.game_data.day == self.start_day + 5:
-            field = self.update_field(4)
-            if field.is_sowable():
-                self.add_commands(ord.semer(1, self.aliments[self.legume], 5))
-                self.legume += 1
+        #     field = self.update_field(3)
+        #     if field.needed_water():
+        #         for i in range(10):
+        #             self.add_commands(ord.arroser(i + 2, 4))
 
-            field = self.update_field(0)
-            if field.is_sowable():
-                self.add_commands(ord.semer(15, self.aliments[self.legume], 1))
-                self.legume += 1
+        #     field = self.update_field(2)
+        #     if field.can_harvest_sell():
+        #         self.add_commands(ord.stocker(14, 3, 3))
 
-            field = self.update_field(3)
-            if field.needed_water():
-                for i in range(10):
-                    self.add_commands(ord.arroser(i + 2, 4))
-
-            field = self.update_field(2)
-            if field.can_harvest_sell():
-                self.add_commands(ord.stocker(14, 3, 3))
-
-        if self.game_data.day == self.start_day + 6:
-            field = self.update_field(0)
-            if field.needed_water():
-                for i in range(5):
-                    self.add_commands(ord.arroser(i + 15, 1))
-
-        if self.legume + 3 > 5:
-            self.legume = 0
+        # if self.game_data.day == self.start_day + 6:
+        #     field = self.update_field(0)
+        #     if field.needed_water():
+        #         for i in range(5):
+        #             self.add_commands(ord.arroser(i + 15, 1))
 
     # /////////////////////////////////////////////////////////////
 
@@ -190,6 +215,7 @@ class Strategy:
             if self.my_farm.employees[0].salary < 1161:
                 if self.game_data.day == self.start_day + 1 + self.turn * 10:
                     self.legume += 1
+                    self.legume %= 5
                     self.add_commands(
                         str(11 + self.turnover * nb_employee)
                         + " SEMER "
@@ -221,6 +247,7 @@ class Strategy:
 
                 if self.game_data.day == self.start_day + 4 + self.turn * 10:
                     self.legume += 1
+                    self.legume %= 5
                     self.add_commands(
                         str(11 + self.turnover * nb_employee)
                         + " SEMER "
@@ -250,6 +277,7 @@ class Strategy:
                         str(12 + self.turnover * nb_employee) + " STOCKER 3 1"
                     )
                     self.legume += 1
+                    self.legume %= 5
                     self.add_commands(
                         str(11 + self.turnover * nb_employee)
                         + " SEMER "
