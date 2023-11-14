@@ -118,6 +118,8 @@ class Strategy:
             field.content = self.my_fields[0].content
             if field.can_harvest_sell():
                 self.add_commands(ord.stocker(12, 1, 1))
+                self.my_fields[0].needed_water = 0
+                self.my_fields[0].content = "NONE"
 
         if self.game_data.day == self.start_day + 4:
             field = Field()
@@ -127,10 +129,8 @@ class Strategy:
                 self.add_commands(ord.semer(1, self.aliments[self.legume], 4))
                 self.legume += 1
 
-            # field.water_lvl = self.my_fields[0].needed_water
-            field.water_lvl = 0
-            # field.content = self.my_fields[0].content
-            field.content = "NONE"
+            field.water_lvl = self.my_fields[0].needed_water
+            field.content = self.my_fields[0].content
             if field.is_sowable():
                 self.add_commands(ord.semer(15, self.aliments[self.legume], 1))
                 self.legume += 1
@@ -145,6 +145,8 @@ class Strategy:
             field.content = self.my_fields[1].content
             if field.can_harvest_sell():
                 self.add_commands(ord.stocker(13, 2, 2))
+                self.my_fields[1].needed_water = 0
+                self.my_fields[1].content = "NONE"
 
         if self.game_data.day == self.start_day + 5:
             field = Field()
@@ -166,6 +168,8 @@ class Strategy:
             field.content = self.my_fields[2].content
             if field.can_harvest_sell():
                 self.add_commands(ord.stocker(14, 3, 3))
+                self.my_fields[2].needed_water = 0
+                self.my_fields[2].content = "NONE"
 
             field = Field()
             field.water_lvl = self.my_fields[0].needed_water
