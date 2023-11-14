@@ -48,7 +48,7 @@ class Strategy:
                     self.add_commands(ord.acheter_champ())
                     owner.money -= 5000
 
-        if len(self.my_farm.fields) == 5:
+        if self.my_farm.fields[4].bought:
             for i in range(len(self.my_fields)):
                 field = Field()
                 field.water_lvl = self.my_fields[i].needed_water
