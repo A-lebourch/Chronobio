@@ -141,10 +141,10 @@ class Strategy:
                 self.add_commands(ord.stocker(13, 2, 2))
 
             field = Field()
-            field.water_lvl = self.my_fields[0].needed_water
-            field.content = self.my_fields[0].content
+            field.water_lvl = self.my_fields[1].needed_water
+            field.content = self.my_fields[1].content
             if field.is_sowable():
-                self.add_commands(ord.semer(15, self.aliments[self.legume], 1))
+                self.add_commands(ord.semer(15, self.aliments[self.legume], 2))
                 self.legume += 1
 
         if self.game_data.day == self.start_day + 5:
@@ -173,7 +173,7 @@ class Strategy:
             field.content = self.my_fields[0].content
             if field.needed_water():
                 for i in range(5):
-                    self.add_commands(ord.arroser(i + 15, 4))
+                    self.add_commands(ord.arroser(i + 15, 1))
 
         if self.legume == 5:
             self.legume = 0
