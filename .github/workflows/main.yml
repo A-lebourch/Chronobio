@@ -28,9 +28,9 @@ jobs:
       working-directory: ./tests  # Remplacez par le chemin vers votre code
 
     - name: create doc
-      run: pdoc sample_player_client.py --html --force
+      run: pdoc --html algorithme/modules
       working-directory: ./  # Remplacez par le chemin vers votre code
 
-    - name: move doc
-      run: mv html/sample_player_client.html docs/
-      working-directory: ./  # Remplacez par le chemin vers votre code
+    # - name: move doc
+    #   run: mv html/sample_player_client.html docs/
+    #   working-directory: ./  # Remplacez par le chemin vers votre code
