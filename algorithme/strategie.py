@@ -213,11 +213,32 @@ class Strategy:
                         + plantation
                         + " 3"
                     )
+                    self.add_commands(
+                        str(18 + self.turnover * nb_employee)
+                        + " SEMER "
+                        + plantation
+                        + " 1"
+                    )
 
                 if self.game_data.day == self.start_day + 2 + self.turn * 10:
                     for i in range(10):
                         string = str(i + 1 + self.turnover * nb_employee) + " ARROSER 3"
                         self.add_commands(string)
+                    for i in range(5):
+                        self.add_commands(
+                            str(18 + i + self.turnover * nb_employee)
+                            + " ARROSER "
+                            + " 1"
+                        )
+
+                if self.game_data.day == self.start_day + 3 + self.turn * 10:
+                    self.add_commands(
+                        str(18 + self.turnover * nb_employee)
+                        + " SEMER "
+                        + plantation
+                        + " 2"
+                    )
+                    self.add_commands(" VENDRE " + " 1")
 
                 if self.game_data.day == self.start_day + 4 + self.turn * 10:
                     self.legume += 1
@@ -227,6 +248,15 @@ class Strategy:
                         + plantation
                         + " 4"
                     )
+                    for i in range(5):
+                        self.add_commands(
+                            str(18 + i + self.turnover * nb_employee)
+                            + " ARROSER "
+                            + " 2"
+                        )
+
+                if self.game_data.day == self.start_day + 5 + self.turn * 10:
+                    self.add_commands(" VENDRE " + " 2")
 
                 if self.game_data.day == self.start_day + 6 + self.turn * 10:
                     self.add_commands(
