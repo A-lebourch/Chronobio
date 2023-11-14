@@ -43,7 +43,7 @@ class Strategy:
         print("#" * 80)
         print(self.game_data)
         print(self.game_data.day, self.start_day)
-        nb_employee = 22
+        nb_employee = 17
         owner = Owner()
         owner.money = self.my_farm.money
         if self.game_data.day == 0:
@@ -153,6 +153,53 @@ class Strategy:
                             stock_farmer_id, stock_field_id, stock_farmer_id - 11
                         )
                     )
+
+        # if self.game_data.day >= self.start_day + 5:
+        #     jour_bleu = (self.game_data.day - (self.start_day + 5)) % 6
+        #     print("jour bleu", jour_bleu)
+        #     if jour_bleu == 1:
+        #         water_field_id = 0
+        #     if jour_bleu == 4:
+        #         water_field_id = 1
+        #     if jour_bleu in (1, 4):
+        #         field = self.update_field(water_field_id - 1)
+        #         if field.needed_water():
+        #             for employee_id in range(16, 20):
+        #                 self.add_commands(ord.arroser(employee_id, water_field_id))
+
+        #     if jour_bleu == 0:
+        #         sow_field_id = 1
+        #     if jour_bleu == 3:
+        #         sow_field_id = 2
+        #     if jour_bleu in (0, 3):
+        #         field = self.update_field(sow_field_id - 1)
+        #         if field.is_sowable():
+        #             self.add_commands(
+        #                 ord.semer(1, self.aliments[self.legume], sow_field_id)
+        #             )
+        #             self.legume += 1
+        #             self.legume %= 5
+
+        #     if jour_bleu == 0:
+        #         stock_field_id = 2
+        #     if jour_bleu == 3:
+        #         stock_field_id = 1
+        #     if jour_bleu in (0, 3):
+        #         field = self.update_field(stock_field_id - 1)
+        #         if field.can_harvest_sell():
+        #             self.add_commands(ord.vendre(stock_field_id))
+
+        if self.game_data.day == self.start_day + 11:
+            self.add_commands(ord.cuisiner(15))
+            self.add_commands(ord.cuisiner(16))
+            self.add_commands(ord.cuisiner(17))
+
+        if self.game_data.day > self.start_day + 18 and all_vegetables(
+            self.my_farm.soup_factory
+        ):
+            self.add_commands(ord.cuisiner(15))
+            self.add_commands(ord.cuisiner(16))
+            self.add_commands(ord.cuisiner(17))
 
         # if self.game_data.day == self.start_day + 5:
         #     field = self.update_field(4)
