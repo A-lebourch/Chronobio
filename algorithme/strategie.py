@@ -32,7 +32,7 @@ class Strategy:
     def add_commands(self, command):
         self.commands.append(command)
 
-    def update_field(i):
+    def update_field(self, i):
         field = Field()
         field.water_lvl = self.my_fields[i].needed_water
         field.content = self.my_fields[i].content
