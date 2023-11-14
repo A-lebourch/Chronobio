@@ -1,5 +1,6 @@
-from algorithme.modules.owner import Owner
+from algorithme.modules.owner import Owner, all_vegetables, is_factory_stopped
 from algorithme.modules.aliments import Aliment
+from algorithme.modules.data_form import SoupFactory
 
 
 def test_can_sell_field_1():
@@ -115,3 +116,37 @@ def test_sell_field_3():
         owner.fields[index_field].water()
     owner.day_invalid = 1
     assert not owner.sell_field(index_field)
+
+
+def test_all_vegetables_1():
+    soup_factory = SoupFactory(
+        days_off=0,
+        stock={"LEEK": 0, "TOMATO": 2, "ONION": 1, "ZUCCHINI": 2, "POTATO": 3},
+    )
+    assert not all_vegetables(soup_factory)
+
+
+def test_all_vegetables_2():
+    soup_factory = SoupFactory(
+        days_off=0,
+        stock={"LEEK": 1, "TOMATO": 2, "ONION": 1, "ZUCCHINI": 2, "POTATO": 3},
+    )
+    assert all_vegetables(soup_factory)
+
+
+def test_is_factory_stopped_1():
+    soup_factory = SoupFactory(
+        days_off=12,
+        stock={"LEEK": 1, "TOMATO": 2, "ONION": 1, "ZUCCHINI": 2, "POTATO": 3},
+    )
+    assert is_factory_stopped(soup_factory)
+
+
+def test_is_factory_stopped_2():
+    soup_factory = SoupFactory(
+        days_off=0,
+        stock={"LEEK": 1, "TOMATO": 2, "ONION": 1, "ZUCCHINI": 2, "POTATO": 3},
+    )
+    assert not is_factory_stopped(soup_factory)
+
+

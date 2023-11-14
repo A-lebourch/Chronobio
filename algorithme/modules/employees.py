@@ -16,7 +16,7 @@ class Employee:
         self.salary = int(self.salary * 0.01) + self.salary
 
         self.fire_salary = int(self.salary) + int(self.salary * 0.01)
-        + int(self.salary)
+        +int(self.salary)
         return self.salary < money
 
     def is_busy(self):
