@@ -66,13 +66,13 @@ class Strategy:
                 self.turnover += 1
 
         if self.game_data.day == self.start_day:
-            for i in range(17):
+            for i in range(22):
                 self.add_commands("0 EMPLOYER")
 
         if len(self.my_farm.employees) > 0:
             plantation = self.aliments[self.legume]
             if self.my_farm.employees[0].salary < 1161:
-                if self.game_data.day == self.start_day + 1 + self.turn * 10:
+                if self.game_data.day == self.start_day + 0 + self.turn * 10:
                     self.legume += 1
                     self.add_commands(
                         str(11 + self.turnover * 17) + " SEMER " + plantation + " 3"
@@ -119,7 +119,7 @@ class Strategy:
                     self.add_commands(str(16 + self.turnover * 17) + " CUISINER")
                     self.add_commands(str(17 + self.turnover * 17) + " CUISINER")
 
-                elif self.game_data.day == self.start_day + 18 and all_vegetables(
+                elif self.game_data.day > self.start_day + 18 and all_vegetables(
                     self.my_farm.soup_factory
                 ):
                     self.add_commands(str(15 + self.turnover * 17) + " CUISINER")
