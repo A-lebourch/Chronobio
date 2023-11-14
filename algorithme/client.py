@@ -16,7 +16,8 @@ class PlayerGameClient(Client):
 
         while True:
             game.game_data = self.read_json()
-            game.main_pas_propre()
+            game.main_propre()
+            # game.main_pas_propre()
 
             self._commands = game.return_commands()
 
