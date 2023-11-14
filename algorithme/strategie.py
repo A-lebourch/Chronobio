@@ -174,6 +174,7 @@ class Strategy:
 
         if self.legume == 5:
             self.legume = 0
+        self.start_day += 1
 
     # /////////////////////////////////////////////////////////////
 
