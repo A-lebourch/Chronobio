@@ -48,11 +48,12 @@ class Strategy:
                     self.add_commands(ord.acheter_champ())
                     owner.money -= 5000
 
-        for i in range(len(self.my_fields)):
-            field = Field()
-            field.water_lvl = self.my_fields[i].needed_water
-            field.content = self.my_fields[i].content
-            print(field.needed_water())
+        if len(self.my_farm.fields) == 5:
+            for i in range(len(self.my_fields)):
+                field = Field()
+                field.water_lvl = self.my_fields[i].needed_water
+                field.content = self.my_fields[i].content
+                print(field.needed_water())
 
         if self.game_data.day == 0:
             for i in range(nb_employee):
