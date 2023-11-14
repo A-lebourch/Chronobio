@@ -54,7 +54,7 @@ class Strategy:
         #     field.content = self.my_fields[i].content
         #     print(field.needed_water())
 
-        if self.game_data.day == self.start_day:
+        if self.game_data.day == 0:
             for i in range(nb_employee):
                 if owner.can_hire():
                     owner.money -= 1000
