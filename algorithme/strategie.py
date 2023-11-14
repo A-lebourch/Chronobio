@@ -95,7 +95,7 @@ class Strategy:
             field.water_lvl = self.my_fields[0].needed_water
             field.content = self.my_fields[0].content
             if field.needed_water():
-                for i in range(9):
+                for i in range(10):
                     self.add_commands(ord.arroser(i + 2, 1))
 
         if self.game_data.day == self.start_day + 3:
@@ -110,14 +110,14 @@ class Strategy:
             field.water_lvl = self.my_fields[1].needed_water
             field.content = self.my_fields[1].content
             if field.needed_water():
-                for i in range(9):
+                for i in range(10):
                     self.add_commands(ord.arroser(i + 2, 2))
 
             field = Field()
             field.water_lvl = self.my_fields[0].needed_water
             field.content = self.my_fields[0].content
-            # if field.can_harvest_sell():
-            self.add_commands(ord.stocker(12, 1, 1))
+            if field.can_harvest_sell():
+                self.add_commands(ord.stocker(12, 1, 1))
 
         if self.game_data.day == self.start_day + 4:
             field = Field()
@@ -131,14 +131,14 @@ class Strategy:
             field.water_lvl = self.my_fields[2].needed_water
             field.content = self.my_fields[2].content
             if field.needed_water():
-                for i in range(9):
+                for i in range(10):
                     self.add_commands(ord.arroser(i + 2, 3))
 
             field = Field()
             field.water_lvl = self.my_fields[1].needed_water
             field.content = self.my_fields[1].content
-            # if field.can_harvest_sell():
-            self.add_commands(ord.stocker(13, 2, 2))
+            if field.can_harvest_sell():
+                self.add_commands(ord.stocker(13, 2, 2))
 
             field = Field()
             field.water_lvl = self.my_fields[0].needed_water
@@ -159,20 +159,20 @@ class Strategy:
             field.water_lvl = self.my_fields[3].needed_water
             field.content = self.my_fields[3].content
             if field.needed_water():
-                for i in range(9):
+                for i in range(10):
                     self.add_commands(ord.arroser(i + 2, 4))
 
             field = Field()
             field.water_lvl = self.my_fields[2].needed_water
             field.content = self.my_fields[2].content
-            # if field.can_harvest_sell():
-            self.add_commands(ord.stocker(14, 3, 3))
+            if field.can_harvest_sell():
+                self.add_commands(ord.stocker(14, 3, 3))
 
             field = Field()
             field.water_lvl = self.my_fields[0].needed_water
             field.content = self.my_fields[0].content
             if field.needed_water():
-                for i in range(4):
+                for i in range(5):
                     self.add_commands(ord.arroser(i + 15, 4))
 
         if self.legume == 5:
