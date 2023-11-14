@@ -40,7 +40,7 @@ class Strategy:
                 self.add_commands(ord.acheter_tracteur())
             for i in range(5):
                 self.add_commands(ord.acheter_champ())
-        for field in range(len(self.fields)):
+        for field in range(len(self.my_fields)):
             field = Field()
             field.water_lvl = self.my_fields[field].needed_water
             field.content = self.my_fields[field].content
