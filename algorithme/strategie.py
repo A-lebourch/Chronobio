@@ -176,7 +176,7 @@ class Strategy:
                 for i in range(5):
                     self.add_commands(ord.arroser(i + 15, 1))
 
-        if self.legume == 5:
+        if self.legume + 3 > 5:
             self.legume = 0
 
     # /////////////////////////////////////////////////////////////
