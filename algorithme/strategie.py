@@ -95,8 +95,8 @@ class Strategy:
             field.water_lvl = self.my_fields[0].needed_water
             field.content = self.my_fields[0].content
             if field.needed_water():
-                for i in range(10):
-                    self.add_commands(ord.arroser(i + 3, 1))
+                for i in range(9):
+                    self.add_commands(ord.arroser(i + 2, 1))
 
         if self.game_data.day == self.start_day + 3:
             field = Field()
