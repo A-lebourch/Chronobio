@@ -237,7 +237,7 @@ class Strategy:
                         + plantation
                         + " 2"
                     )
-                    self.add_commands(" VENDRE " + " 1")
+                    self.add_commands("0 VENDRE " + " 1")
 
                 if self.game_data.day == self.start_day + 4 + self.turn * 10:
                     self.legume += 1
@@ -253,7 +253,7 @@ class Strategy:
                         )
 
                 if self.game_data.day == self.start_day + 5 + self.turn * 10:
-                    self.add_commands(" VENDRE 2")
+                    self.add_commands("0 VENDRE 2")
 
                 if self.game_data.day == self.start_day + 6 + self.turn * 10:
                     self.add_commands(
