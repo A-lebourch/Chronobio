@@ -33,7 +33,6 @@ class Strategy:
         self.commands.append(command)
 
     def main_propre(self):
-        plantation = self.aliments[self.legume]
         nb_employee = 22
         self.get_data()
         owner = Owner()
@@ -77,7 +76,7 @@ class Strategy:
             field.water_lvl = self.my_fields[0].needed_water
             field.content = self.my_fields[0].content
             if field.is_sowable():
-                self.add_commands(ord.semer(1, plantation[self.legume], 1))
+                self.add_commands(ord.semer(1, self.aliments[self.legume], 1))
                 self.legume += 1
 
         if self.game_data.day == self.start_day + 2:
@@ -85,7 +84,7 @@ class Strategy:
             field.water_lvl = self.my_fields[1].needed_water
             field.content = self.my_fields[1].content
             if field.is_sowable():
-                self.add_commands(ord.semer(1, plantation[self.legume], 2))
+                self.add_commands(ord.semer(1, self.aliments[self.legume], 2))
                 self.legume += 1
 
             field = Field()
@@ -100,7 +99,7 @@ class Strategy:
             field.water_lvl = self.my_fields[2].needed_water
             field.content = self.my_fields[2].content
             if field.is_sowable():
-                self.add_commands(ord.semer(1, plantation[self.legume], 3))
+                self.add_commands(ord.semer(1, self.aliments[self.legume], 3))
                 self.legume += 1
 
             field = Field()
@@ -121,7 +120,7 @@ class Strategy:
             field.water_lvl = self.my_fields[3].needed_water
             field.content = self.my_fields[3].content
             if field.is_sowable():
-                self.add_commands(ord.semer(1, plantation[self.legume], 4))
+                self.add_commands(ord.semer(1, self.aliments[self.legume], 4))
                 self.legume += 1
 
             field = Field()
@@ -141,7 +140,7 @@ class Strategy:
             field.water_lvl = self.my_fields[0].needed_water
             field.content = self.my_fields[0].content
             if field.is_sowable():
-                self.add_commands(ord.semer(15, plantation[self.legume], 1))
+                self.add_commands(ord.semer(15, self.aliments[self.legume], 1))
                 self.legume += 1
 
         if self.game_data.day == self.start_day + 5:
@@ -149,7 +148,7 @@ class Strategy:
             field.water_lvl = self.my_fields[4].needed_water
             field.content = self.my_fields[4].content
             if field.is_sowable():
-                self.add_commands(ord.semer(1, plantation[self.legume], 5))
+                self.add_commands(ord.semer(1, self.aliments[self.legume], 5))
                 self.legume += 1
 
             field = Field()
