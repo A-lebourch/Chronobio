@@ -58,9 +58,9 @@ class Strategy:
 
         if self.game_data.day == 0:
             for i in range(nb_employee):
-                if owner.can_hire():
-                    owner.money -= 1000
-                    self.add_commands("0 EMPLOYER")
+                # if owner.can_hire():
+                #     owner.money -= 1000
+                self.add_commands("0 EMPLOYER")
 
                 if len(self.my_farm.employees) > 0:
                     if owner.can_fire(0):
