@@ -41,9 +41,9 @@ class Strategy:
         if self.game_data.day == 0:
             self.add_commands(ord.emprunter(100_000))
             for i in range(3):
-                if owner.can_buy_tractor():
-                    owner.money -= 30_000
-                    self.add_commands(ord.acheter_tracteur())
+                # if owner.can_buy_tractor():
+                #     owner.money -= 30_000
+                self.add_commands(ord.acheter_tracteur())
             for i in range(5):
                 if owner.can_buy_field():
                     self.add_commands(ord.acheter_champ())
