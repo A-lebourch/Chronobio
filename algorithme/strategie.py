@@ -36,13 +36,13 @@ class Strategy:
         plantation = self.aliments[self.legume]
         nb_employee = 22
         self.get_data()
-        owner = Owner
+        owner = Owner()
         owner.money = self.my_farm.money
         if self.game_data.day == 0:
             self.add_commands(ord.emprunter(100_000))
             for i in range(3):
-                # if owner.can_buy_tractor():
-                #     owner.money -= 30_000
+                if owner.can_buy_tractor():
+                    owner.money -= 30_000
                 self.add_commands(ord.acheter_tracteur())
             for i in range(5):
                 if owner.can_buy_field():
