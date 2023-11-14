@@ -110,8 +110,8 @@ class Strategy:
             field.water_lvl = self.my_fields[1].needed_water
             field.content = self.my_fields[1].content
             if field.needed_water():
-                for i in range(10):
-                    self.add_commands(ord.arroser(i + 3, 2))
+                for i in range(9):
+                    self.add_commands(ord.arroser(i + 2, 2))
 
             field = Field()
             field.water_lvl = self.my_fields[0].needed_water
@@ -131,8 +131,8 @@ class Strategy:
             field.water_lvl = self.my_fields[2].needed_water
             field.content = self.my_fields[2].content
             if field.needed_water():
-                for i in range(10):
-                    self.add_commands(ord.arroser(i + 3, 3))
+                for i in range(9):
+                    self.add_commands(ord.arroser(i + 2, 3))
 
             field = Field()
             field.water_lvl = self.my_fields[1].needed_water
@@ -159,8 +159,8 @@ class Strategy:
             field.water_lvl = self.my_fields[3].needed_water
             field.content = self.my_fields[3].content
             if field.needed_water():
-                for i in range(10):
-                    self.add_commands(ord.arroser(i + 3, 4))
+                for i in range(9):
+                    self.add_commands(ord.arroser(i + 2, 4))
 
             field = Field()
             field.water_lvl = self.my_fields[2].needed_water
@@ -172,7 +172,7 @@ class Strategy:
             field.water_lvl = self.my_fields[0].needed_water
             field.content = self.my_fields[0].content
             if field.needed_water():
-                for i in range(5):
+                for i in range(4):
                     self.add_commands(ord.arroser(i + 15, 4))
 
         if self.legume == 5:
