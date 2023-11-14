@@ -1,7 +1,6 @@
 from algorithme.modules.data_form import SoupFactory, General
 from algorithme.modules.field import Field
 from algorithme.modules.employees import Employee
-from algorithme.modules.locations import Location
 
 
 class Owner:
@@ -12,11 +11,11 @@ class Owner:
     def __init__(self):
         self.money = 100_000
         self.fields: list[Field] = [
-            Field(Location.FIELD1),
-            Field(Location.FIELD2),
-            Field(Location.FIELD3),
-            Field(Location.FIELD4),
-            Field(Location.FIELD5),
+            Field(),
+            Field(),
+            Field(),
+            Field(),
+            Field(),
         ]
         self.employees: list[Employee] = []
         self.day_invalid: int = 0
@@ -66,11 +65,12 @@ class Owner:
         if self.can_hire():
             self.employees.append(Employee())
 
-    # def can_fire(self):
-    #     if self.day_invalid == 0:
-    #         return self.emp_time >= 15
-    #     else:
-    #         return False
+    def can_fire(self, employee):
+        if self.day_invalid == 0:
+            if self.employees[employee].salary > 1161:
+                return True
+        else:
+            return False
 
     def employee_add_order(self, order, employee):
         pass
