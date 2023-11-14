@@ -1,3 +1,4 @@
+from algorithme.modules.data_form import SoupFactory, General
 from algorithme.modules.field import Field
 from algorithme.modules.employees import Employee
 from algorithme.modules.locations import Location
@@ -73,3 +74,27 @@ class Owner:
 
     def employee_add_order(self, order, employee):
         pass
+
+
+def all_vegetables(factory: SoupFactory) -> bool:
+    return all(vegetable_stock != 0 for vegetable_stock in factory.stock.values())
+
+
+def is_factory_stopped(soup_factory: SoupFactory):
+    return soup_factory.days_off != 0
+
+
+def priority_plantation(game_data: General):
+    quantity = {"PATATE": 0, "POIREAU": 0, "TOMATE": 0, "OIGNON": 0, "COURGETTE": 0}
+    count = []
+    for owner in range(len(game_data.farms)):
+        for field in range(len(owner.farms[owner].fields)):
+            if game_data.farms[owner].fields["bought"] is True:
+                count.append(game_data.farms[owner].fields["content"])
+
+    for key in quantity.keys():
+        quantity[key] = count.count(key)
+
+    quantity = dict(sorted(quantity.items(), key=lambda item: item[1]))
+    quantity = list(quantity.keys())
+    return quantity
