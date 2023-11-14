@@ -68,9 +68,9 @@ class Strategy:
                 #                 "0 LICENCIER " + str(i + 1 + self.turnover * nb_employee)
                 #             )
 
-                self.start_day = self.game_data.day + 2
-                self.turn = 0
-                self.turnover += 1
+                # self.start_day = self.game_data.day + 2
+                # self.turn = 0
+                # self.turnover += 1
 
         if self.game_data.day == self.start_day + 1:
             field = Field()
@@ -174,7 +174,6 @@ class Strategy:
 
         if self.legume == 5:
             self.legume = 0
-        self.start_day += 1
 
     # /////////////////////////////////////////////////////////////
 
