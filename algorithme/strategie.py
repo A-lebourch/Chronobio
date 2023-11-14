@@ -127,8 +127,10 @@ class Strategy:
                 self.add_commands(ord.semer(1, self.aliments[self.legume], 4))
                 self.legume += 1
 
-            field.water_lvl = self.my_fields[0].needed_water
-            field.content = self.my_fields[0].content
+            # field.water_lvl = self.my_fields[0].needed_water
+            field.water_lvl = 0
+            # field.content = self.my_fields[0].content
+            field.content = "NONE"
             if field.is_sowable():
                 self.add_commands(ord.semer(15, self.aliments[self.legume], 1))
                 self.legume += 1
