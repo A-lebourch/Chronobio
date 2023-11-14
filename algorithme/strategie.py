@@ -224,11 +224,10 @@ class Strategy:
                     for i in range(10):
                         string = str(i + 1 + self.turnover * nb_employee) + " ARROSER 3"
                         self.add_commands(string)
+
                     for i in range(5):
                         self.add_commands(
-                            str(18 + i + self.turnover * nb_employee)
-                            + " ARROSER "
-                            + " 1"
+                            str(18 + i + self.turnover * nb_employee) + " ARROSER 1"
                         )
 
                 if self.game_data.day == self.start_day + 3 + self.turn * 10:
@@ -250,13 +249,11 @@ class Strategy:
                     )
                     for i in range(5):
                         self.add_commands(
-                            str(18 + i + self.turnover * nb_employee)
-                            + " ARROSER "
-                            + " 2"
+                            str(18 + i + self.turnover * nb_employee) + " ARROSER 2"
                         )
 
                 if self.game_data.day == self.start_day + 5 + self.turn * 10:
-                    self.add_commands(" VENDRE " + " 2")
+                    self.add_commands(" VENDRE 2")
 
                 if self.game_data.day == self.start_day + 6 + self.turn * 10:
                     self.add_commands(
