@@ -79,91 +79,77 @@ class Strategy:
                 self.turnover += 1
 
         if self.game_data.day == self.start_day + 1:
-            field.water_lvl = self.my_fields[0].needed_water
-            field.content = self.my_fields[0].content
+            field = self.update_field(0)
             if field.is_sowable():
                 self.add_commands(ord.semer(1, self.aliments[self.legume], 1))
                 self.legume += 1
 
         if self.game_data.day == self.start_day + 2:
-            field.water_lvl = self.my_fields[1].needed_water
-            field.content = self.my_fields[1].content
+            field = self.update_field(1)
             if field.is_sowable():
                 self.add_commands(ord.semer(1, self.aliments[self.legume], 2))
                 self.legume += 1
 
-            field.water_lvl = self.my_fields[0].needed_water
-            field.content = self.my_fields[0].content
+            field = self.update_field(0)
             if field.needed_water():
                 for i in range(10):
                     self.add_commands(ord.arroser(i + 2, 1))
 
         if self.game_data.day == self.start_day + 3:
-            field.water_lvl = self.my_fields[2].needed_water
-            field.content = self.my_fields[2].content
+            field = self.update_field(2)
             if field.is_sowable():
                 self.add_commands(ord.semer(1, self.aliments[self.legume], 3))
                 self.legume += 1
 
-            field.water_lvl = self.my_fields[1].needed_water
-            field.content = self.my_fields[1].content
+            field = self.update_field(1)
             if field.needed_water():
                 for i in range(10):
                     self.add_commands(ord.arroser(i + 2, 2))
 
-            field.water_lvl = self.my_fields[0].needed_water
-            field.content = self.my_fields[0].content
+            field = self.update_field(0)
             if field.can_harvest_sell():
                 self.add_commands(ord.stocker(12, 1, 1))
 
         if self.game_data.day == self.start_day + 4:
-            field.water_lvl = self.my_fields[3].needed_water
-            field.content = self.my_fields[3].content
+            field = self.update_field(3)
             if field.is_sowable():
                 self.add_commands(ord.semer(1, self.aliments[self.legume], 4))
                 self.legume += 1
 
-            field.water_lvl = self.my_fields[0].needed_water
-            field.content = self.my_fields[0].content
+            field = self.update_field(0)
+            field = self.update_field(2)
 
-            field.water_lvl = self.my_fields[2].needed_water
-            field.content = self.my_fields[2].content
             if field.needed_water():
                 for i in range(10):
                     self.add_commands(ord.arroser(i + 2, 3))
 
-            field.water_lvl = self.my_fields[1].needed_water
-            field.content = self.my_fields[1].content
+            field = self.update_field(1)
+
             if field.can_harvest_sell():
                 self.add_commands(ord.stocker(13, 2, 2))
 
         if self.game_data.day == self.start_day + 5:
-            field.water_lvl = self.my_fields[4].needed_water
-            field.content = self.my_fields[4].content
+            field = self.update_field(4)
             if field.is_sowable():
                 self.add_commands(ord.semer(1, self.aliments[self.legume], 5))
                 self.legume += 1
 
-            field.water_lvl = self.my_fields[0].needed_water
-            field.content = self.my_fields[0].content
+            field = self.update_field(0)
             if field.is_sowable():
                 self.add_commands(ord.semer(15, self.aliments[self.legume], 1))
                 self.legume += 1
 
-            field.water_lvl = self.my_fields[3].needed_water
-            field.content = self.my_fields[3].content
+            field = self.update_field(3)
             if field.needed_water():
                 for i in range(10):
                     self.add_commands(ord.arroser(i + 2, 4))
 
-            field.water_lvl = self.my_fields[2].needed_water
-            field.content = self.my_fields[2].content
+            field = self.update_field(2)
             if field.can_harvest_sell():
                 self.add_commands(ord.stocker(14, 3, 3))
 
         if self.game_data.day == self.start_day + 6:
-            field.water_lvl = self.my_fields[0].needed_water
-            field.content = self.my_fields[0].content
+            field = self.update_field(0)
             if field.needed_water():
                 for i in range(5):
                     self.add_commands(ord.arroser(i + 15, 1))
