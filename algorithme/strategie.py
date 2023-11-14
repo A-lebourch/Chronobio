@@ -130,7 +130,8 @@ class Strategy:
             field.water_lvl = self.my_fields[0].needed_water
             field.content = self.my_fields[0].content
             print("///////////////////////////////////////////////////////////////")
-            print(field.content)
+            print(self.my_fields[0].needed_water)
+            print(self.my_fields[0].content)
             print("///////////////////////////////////////////////////////////////")
             if field.is_sowable():
                 self.add_commands(ord.semer(15, self.aliments[self.legume], 1))
@@ -154,6 +155,10 @@ class Strategy:
             if field.is_sowable():
                 self.add_commands(ord.semer(1, self.aliments[self.legume], 5))
                 self.legume += 1
+            print("///////////////////////////////////////////////////////////////")
+            print(self.my_fields[0].needed_water)
+            print(self.my_fields[0].content)
+            print("///////////////////////////////////////////////////////////////")
 
             field = Field()
             field.water_lvl = self.my_fields[3].needed_water
