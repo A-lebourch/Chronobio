@@ -1,9 +1,7 @@
 from algorithme.modules.data_form import General
-from algorithme.modules.employees import Employee
 from algorithme.modules.field import Field
 from algorithme.modules.owner import Owner, all_vegetables
 import algorithme.modules.order as ord
-from random import choice
 
 
 class Strategy:
@@ -103,7 +101,9 @@ class Strategy:
             field = self.update_field(field_index)
             if field.can_harvest_sell():
                 self.add_commands(
-                    ord.stocker(12 + field_index, field_index + 1, field_index + 1)
+                    ord.stocker(
+                        12 + field_index, field_index + 1, field_index + 1
+                    )
                 )
 
         if self.game_data.day >= self.start_day + 5:
@@ -119,7 +119,9 @@ class Strategy:
                 field = self.update_field(water_field_id - 1)
                 if field.needed_water():
                     for employee_id in range(2, 12):
-                        self.add_commands(ord.arroser(employee_id, water_field_id))
+                        self.add_commands(
+                            ord.arroser(employee_id, water_field_id)
+                        )
 
             if jour_rose == 0:
                 sow_field_id = 5
@@ -150,7 +152,9 @@ class Strategy:
                 if field.can_harvest_sell():
                     self.add_commands(
                         ord.stocker(
-                            stock_farmer_id, stock_field_id, stock_farmer_id - 11
+                            stock_farmer_id,
+                            stock_field_id,
+                            stock_farmer_id - 11,
                         )
                     )
 
@@ -165,7 +169,9 @@ class Strategy:
                 field = self.update_field(water_field_id)
                 if field.needed_water():
                     for employee_id in range(18, 23):
-                        self.add_commands(ord.arroser(employee_id, water_field_id + 1))
+                        self.add_commands(
+                            ord.arroser(employee_id, water_field_id + 1)
+                        )
 
             if jour_bleu == 0:
                 sow_field_id = 0
@@ -175,7 +181,9 @@ class Strategy:
                 field = self.update_field(sow_field_id)
                 if field.is_sowable():
                     self.add_commands(
-                        ord.semer(18, self.aliments[self.legume], sow_field_id + 1)
+                        ord.semer(
+                            18, self.aliments[self.legume], sow_field_id + 1
+                        )
                     )
                     self.legume += 1
                     self.legume %= 5
@@ -201,36 +209,6 @@ class Strategy:
             self.add_commands(ord.cuisiner(16))
             self.add_commands(ord.cuisiner(17))
 
-        # if self.game_data.day == self.start_day + 5:
-        #     field = self.update_field(4)
-        #     if field.is_sowable():
-        #         self.add_commands(ord.semer(1, self.aliments[self.legume], 5))
-        #         self.legume += 1
-        #         self.legume %= 5
-
-        #     field = self.update_field(0)
-        #     if field.is_sowable():
-        #         self.add_commands(ord.semer(15, self.aliments[self.legume], 1))
-        #         self.legume += 1
-        #         self.legume %= 5
-
-        #     field = self.update_field(3)
-        #     if field.needed_water():
-        #         for i in range(10):
-        #             self.add_commands(ord.arroser(i + 2, 4))
-
-        #     field = self.update_field(2)
-        #     if field.can_harvest_sell():
-        #         self.add_commands(ord.stocker(14, 3, 3))
-
-        # if self.game_data.day == self.start_day + 6:
-        #     field = self.update_field(0)
-        #     if field.needed_water():
-        #         for i in range(5):
-        #             self.add_commands(ord.arroser(i + 15, 1))
-
-    # /////////////////////////////////////////////////////////////
-
     def main_pas_propre(self):
         nb_employee = 22
         self.get_data()
@@ -246,7 +224,8 @@ class Strategy:
                 self.add_commands("0 EMPRUNTER 20000")
                 for i in range(nb_employee):
                     self.add_commands(
-                        "0 LICENCIER " + str(i + 1 + self.turnover * nb_employee)
+                        "0 LICENCIER "
+                        + str(i + 1 + self.turnover * nb_employee)
                     )
 
                 self.start_day = self.game_data.day + 2
@@ -278,18 +257,22 @@ class Strategy:
 
                 if self.game_data.day == self.start_day + 2 + self.turn * 10:
                     for i in range(10):
-                        string = str(i + 1 + self.turnover * nb_employee) + " ARROSER 3"
-                        self.add_commands(string)
+                        self.add_commands(
+                            str(i + 1 + self.turnover * nb_employee)
+                            + " ARROSER 3"
+                        )
 
                     for i in range(5):
                         self.add_commands(
-                            str(18 + i + self.turnover * nb_employee) + " ARROSER 1"
+                            str(18 + i + self.turnover * nb_employee)
+                            + " ARROSER 1"
                         )
 
                 if self.game_data.day == self.start_day + 3 + self.turn * 10:
                     for i in range(5):
                         self.add_commands(
-                            str(18 + i + self.turnover * nb_employee) + " ARROSER 1"
+                            str(18 + i + self.turnover * nb_employee)
+                            + " ARROSER 1"
                         )
 
                 if self.game_data.day == self.start_day + 4 + self.turn * 10:
@@ -312,13 +295,15 @@ class Strategy:
                 if self.game_data.day == self.start_day + 5 + self.turn * 10:
                     for i in range(5):
                         self.add_commands(
-                            str(18 + i + self.turnover * nb_employee) + " ARROSER 2"
+                            str(18 + i + self.turnover * nb_employee)
+                            + " ARROSER 2"
                         )
 
                 if self.game_data.day == self.start_day + 6 + self.turn * 10:
                     for i in range(5):
                         self.add_commands(
-                            str(18 + i + self.turnover * nb_employee) + " ARROSER 2"
+                            str(18 + i + self.turnover * nb_employee)
+                            + " ARROSER 2"
                         )
                     self.add_commands(
                         str(12 + self.turnover * nb_employee) + " STOCKER 3 1"
@@ -332,7 +317,10 @@ class Strategy:
                         + " 5"
                     )
                     for i in range(10):
-                        string = str(i + 1 + self.turnover * nb_employee) + " ARROSER 4"
+                        string = (
+                            str(i + 1 + self.turnover * nb_employee)
+                            + " ARROSER 4"
+                        )
                         self.add_commands(string)
 
                 if self.game_data.day == self.start_day + 8 + self.turn * 10:
@@ -341,7 +329,10 @@ class Strategy:
                         str(13 + self.turnover * nb_employee) + " STOCKER 4 2"
                     )
                     for i in range(10):
-                        string = str(i + 1 + self.turnover * nb_employee) + " ARROSER 5"
+                        string = (
+                            str(i + 1 + self.turnover * nb_employee)
+                            + " ARROSER 5"
+                        )
                         self.add_commands(string)
 
                 if self.game_data.day == self.start_day + 10 + self.turn * 10:
@@ -372,8 +363,9 @@ class Strategy:
                         str(17 + self.turnover * nb_employee) + " CUISINER"
                     )
 
-                elif self.game_data.day > self.start_day + 18 and all_vegetables(
-                    self.my_farm.soup_factory
+                elif (
+                    self.game_data.day > self.start_day + 18
+                    and all_vegetables(self.my_farm.soup_factory)
                 ):
                     self.add_commands(
                         str(15 + self.turnover * nb_employee) + " CUISINER"

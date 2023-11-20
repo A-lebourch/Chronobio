@@ -58,7 +58,12 @@ game_data2 = {
                 },
             },
             "employees": [
-                {"id": 1, "location": "FIELD3", "tractor": None, "salary": 1021},
+                {
+                    "id": 1,
+                    "location": "FIELD3",
+                    "tractor": None,
+                    "salary": 1021,
+                },
                 {"id": 2, "location": "FARM", "tractor": None, "salary": 1021},
             ],
             "events": [],

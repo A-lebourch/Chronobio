@@ -148,5 +148,3 @@ def test_is_factory_stopped_2():
         stock={"LEEK": 1, "TOMATO": 2, "ONION": 1, "ZUCCHINI": 2, "POTATO": 3},
     )
     assert not is_factory_stopped(soup_factory)
-
-

@@ -3,7 +3,7 @@ name: Tests
 on:
   push:
     branches:
-      - main  # Changer pour la branche que vous utilisez
+      - main
 
 jobs:
   build:
@@ -21,16 +21,16 @@ jobs:
     - name: Install dependencies
       run: |
         pip install -r requirements.txt  # Assurez-vous d'avoir un fichier requirements.txt si nécessaire
-      working-directory: ./  # Remplacez par le chemin vers votre code
+      working-directory: ./
 
     - name: Run tests
       run: pytest
-      working-directory: ./tests  # Remplacez par le chemin vers votre code
+      working-directory: ./tests
 
     - name: create doc
-      run: pdoc --html algorithme/modules
-      working-directory: ./  # Remplacez par le chemin vers votre code
+      run: pdoc --html algorithme/ algorithme chronobio --force
+      working-directory: ./
 
-    # - name: move doc
-    #   run: mv html/sample_player_client.html docs/
-    #   working-directory: ./  # Remplacez par le chemin vers votre code
+    - name: move doc
+      run: mv html/algorithme/* docs/
+      working-directory: ./

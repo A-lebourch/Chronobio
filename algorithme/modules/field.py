@@ -1,6 +1,3 @@
-from algorithme.modules.aliments import Aliment
-
-
 class Field:
     def __init__(self):
         self.content = "NONE"

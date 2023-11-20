@@ -77,7 +77,9 @@ class Owner:
 
 
 def all_vegetables(factory: SoupFactory) -> bool:
-    return all(vegetable_stock != 0 for vegetable_stock in factory.stock.values())
+    return all(
+        vegetable_stock != 0 for vegetable_stock in factory.stock.values()
+    )
 
 
 def is_factory_stopped(soup_factory: SoupFactory):
@@ -85,7 +87,13 @@ def is_factory_stopped(soup_factory: SoupFactory):
 
 
 def priority_plantation(game_data: General):
-    quantity = {"PATATE": 0, "POIREAU": 0, "TOMATE": 0, "OIGNON": 0, "COURGETTE": 0}
+    quantity = {
+        "PATATE": 0,
+        "POIREAU": 0,
+        "TOMATE": 0,
+        "OIGNON": 0,
+        "COURGETTE": 0,
+    }
     count = []
     for owner in range(len(game_data.farms)):
         for field in range(len(owner.farms[owner].fields)):
