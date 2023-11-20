@@ -4,7 +4,7 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1" />
 <meta name="generator" content="pdoc 0.10.0" />
-<title>algorithme API documentation</title>
+<title>algorithme.modules.locations API documentation</title>
 <meta name="description" content="" />
 <link rel="preload stylesheet" as="style" href="https://cdnjs.cloudflare.com/ajax/libs/10up-sanitize.css/11.0.1/sanitize.min.css" integrity="sha256-PK9q560IAAa6WVRRh76LtCaI8pjTJ2z11v0miyNNjrs=" crossorigin>
 <link rel="preload stylesheet" as="style" href="https://cdnjs.cloudflare.com/ajax/libs/10up-sanitize.css/11.0.1/typography.min.css" integrity="sha256-7l/o7C8jubJiy74VsKTidCy1yBkRtiUGbVkYBylBqUg=" crossorigin>
@@ -19,32 +19,93 @@
 <main>
 <article id="content">
 <header>
-<h1 class="title">Package <code>algorithme</code></h1>
+<h1 class="title">Module <code>algorithme.modules.locations</code></h1>
 </header>
 <section id="section-intro">
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">from enum import IntEnum
+
+
+class Location(IntEnum):
+    FARM = 0
+    FIELD1 = 1
+    FIELD2 = 2
+    FIELD3 = 3
+    FIELD4 = 4
+    FIELD5 = 5
+    SOUP_FACTORY = 6</code></pre>
+</details>
 </section>
 <section>
-<h2 class="section-title" id="header-submodules">Sub-modules</h2>
+</section>
+<section>
+</section>
+<section>
+</section>
+<section>
+<h2 class="section-title" id="header-classes">Classes</h2>
 <dl>
-<dt><code class="name"><a title="algorithme.client" href="client.html">algorithme.client</a></code></dt>
+<dt id="algorithme.modules.locations.Location"><code class="flex name class">
+<span>class <span class="ident">Location</span></span>
+<span>(</span><span>value, names=None, *, module=None, qualname=None, type=None, start=1)</span>
+</code></dt>
+<dd>
+<div class="desc"><p>An enumeration.</p></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">class Location(IntEnum):
+    FARM = 0
+    FIELD1 = 1
+    FIELD2 = 2
+    FIELD3 = 3
+    FIELD4 = 4
+    FIELD5 = 5
+    SOUP_FACTORY = 6</code></pre>
+</details>
+<h3>Ancestors</h3>
+<ul class="hlist">
+<li>enum.IntEnum</li>
+<li>builtins.int</li>
+<li>enum.Enum</li>
+</ul>
+<h3>Class variables</h3>
+<dl>
+<dt id="algorithme.modules.locations.Location.FARM"><code class="name">var <span class="ident">FARM</span></code></dt>
 <dd>
 <div class="desc"></div>
 </dd>
-<dt><code class="name"><a title="algorithme.modules" href="modules/index.html">algorithme.modules</a></code></dt>
+<dt id="algorithme.modules.locations.Location.FIELD1"><code class="name">var <span class="ident">FIELD1</span></code></dt>
 <dd>
 <div class="desc"></div>
 </dd>
-<dt><code class="name"><a title="algorithme.strategie" href="strategie.html">algorithme.strategie</a></code></dt>
+<dt id="algorithme.modules.locations.Location.FIELD2"><code class="name">var <span class="ident">FIELD2</span></code></dt>
+<dd>
+<div class="desc"></div>
+</dd>
+<dt id="algorithme.modules.locations.Location.FIELD3"><code class="name">var <span class="ident">FIELD3</span></code></dt>
+<dd>
+<div class="desc"></div>
+</dd>
+<dt id="algorithme.modules.locations.Location.FIELD4"><code class="name">var <span class="ident">FIELD4</span></code></dt>
+<dd>
+<div class="desc"></div>
+</dd>
+<dt id="algorithme.modules.locations.Location.FIELD5"><code class="name">var <span class="ident">FIELD5</span></code></dt>
+<dd>
+<div class="desc"></div>
+</dd>
+<dt id="algorithme.modules.locations.Location.SOUP_FACTORY"><code class="name">var <span class="ident">SOUP_FACTORY</span></code></dt>
 <dd>
 <div class="desc"></div>
 </dd>
 </dl>
-</section>
-<section>
-</section>
-<section>
-</section>
-<section>
+</dd>
+</dl>
 </section>
 </article>
 <nav id="sidebar">
@@ -53,11 +114,25 @@
 <ul></ul>
 </div>
 <ul id="index">
-<li><h3><a href="#header-submodules">Sub-modules</a></h3>
+<li><h3>Super-module</h3>
 <ul>
-<li><code><a title="algorithme.client" href="client.html">algorithme.client</a></code></li>
-<li><code><a title="algorithme.modules" href="modules/index.html">algorithme.modules</a></code></li>
-<li><code><a title="algorithme.strategie" href="strategie.html">algorithme.strategie</a></code></li>
+<li><code><a title="algorithme.modules" href="index.html">algorithme.modules</a></code></li>
+</ul>
+</li>
+<li><h3><a href="#header-classes">Classes</a></h3>
+<ul>
+<li>
+<h4><code><a title="algorithme.modules.locations.Location" href="#algorithme.modules.locations.Location">Location</a></code></h4>
+<ul class="two-column">
+<li><code><a title="algorithme.modules.locations.Location.FARM" href="#algorithme.modules.locations.Location.FARM">FARM</a></code></li>
+<li><code><a title="algorithme.modules.locations.Location.FIELD1" href="#algorithme.modules.locations.Location.FIELD1">FIELD1</a></code></li>
+<li><code><a title="algorithme.modules.locations.Location.FIELD2" href="#algorithme.modules.locations.Location.FIELD2">FIELD2</a></code></li>
+<li><code><a title="algorithme.modules.locations.Location.FIELD3" href="#algorithme.modules.locations.Location.FIELD3">FIELD3</a></code></li>
+<li><code><a title="algorithme.modules.locations.Location.FIELD4" href="#algorithme.modules.locations.Location.FIELD4">FIELD4</a></code></li>
+<li><code><a title="algorithme.modules.locations.Location.FIELD5" href="#algorithme.modules.locations.Location.FIELD5">FIELD5</a></code></li>
+<li><code><a title="algorithme.modules.locations.Location.SOUP_FACTORY" href="#algorithme.modules.locations.Location.SOUP_FACTORY">SOUP_FACTORY</a></code></li>
+</ul>
+</li>
 </ul>
 </li>
 </ul>

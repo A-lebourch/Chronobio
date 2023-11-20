@@ -4,7 +4,7 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1" />
 <meta name="generator" content="pdoc 0.10.0" />
-<title>algorithme API documentation</title>
+<title>algorithme.client API documentation</title>
 <meta name="description" content="" />
 <link rel="preload stylesheet" as="style" href="https://cdnjs.cloudflare.com/ajax/libs/10up-sanitize.css/11.0.1/sanitize.min.css" integrity="sha256-PK9q560IAAa6WVRRh76LtCaI8pjTJ2z11v0miyNNjrs=" crossorigin>
 <link rel="preload stylesheet" as="style" href="https://cdnjs.cloudflare.com/ajax/libs/10up-sanitize.css/11.0.1/typography.min.css" integrity="sha256-7l/o7C8jubJiy74VsKTidCy1yBkRtiUGbVkYBylBqUg=" crossorigin>
@@ -19,32 +19,162 @@
 <main>
 <article id="content">
 <header>
-<h1 class="title">Package <code>algorithme</code></h1>
+<h1 class="title">Module <code>algorithme.client</code></h1>
 </header>
 <section id="section-intro">
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">import argparse
+from typing import NoReturn
+from chronobio.network.client import Client
+from algorithme.strategie import Strategy
+
+
+class PlayerGameClient(Client):
+    def __init__(
+        self: &#34;PlayerGameClient&#34;, server_addr: str, port: int, username: str
+    ) -&gt; None:
+        super().__init__(server_addr, port, username, spectator=False)
+        self._commands: list[str] = []
+
+    def run(self: &#34;PlayerGameClient&#34;) -&gt; NoReturn:
+        game = Strategy(self.username)
+
+        while True:
+            game.game_data = self.read_json()
+            game.main_propre()
+
+            self._commands = game.return_commands()
+
+            self.send_commands()
+
+    def send_commands(self: &#34;PlayerGameClient&#34;) -&gt; None:
+        data = {&#34;commands&#34;: self._commands}
+        print(&#34;sending&#34;, data)
+        self.send_json(data)
+        self._commands.clear()
+
+
+if __name__ == &#34;__main__&#34;:
+    parser = argparse.ArgumentParser(description=&#34;Game client.&#34;)
+    parser.add_argument(
+        &#34;-a&#34;,
+        &#34;--address&#34;,
+        type=str,
+        help=&#34;name of server on the network&#34;,
+        default=&#34;localhost&#34;,
+    )
+    parser.add_argument(
+        &#34;-p&#34;,
+        &#34;--port&#34;,
+        type=int,
+        help=&#34;location where server listens&#34;,
+        default=16210,
+    )
+    parser.add_argument(
+        &#34;-u&#34;,
+        &#34;--username&#34;,
+        type=str,
+        help=&#34;name of the user&#34;,
+        default=&#34;unknown&#34;,
+        required=True,
+    )
+    args = parser.parse_args()
+
+    client = PlayerGameClient(args.address, args.port, args.username).run()</code></pre>
+</details>
 </section>
 <section>
-<h2 class="section-title" id="header-submodules">Sub-modules</h2>
+</section>
+<section>
+</section>
+<section>
+</section>
+<section>
+<h2 class="section-title" id="header-classes">Classes</h2>
 <dl>
-<dt><code class="name"><a title="algorithme.client" href="client.html">algorithme.client</a></code></dt>
+<dt id="algorithme.client.PlayerGameClient"><code class="flex name class">
+<span>class <span class="ident">PlayerGameClient</span></span>
+<span>(</span><span>server_addr: str, port: int, username: str)</span>
+</code></dt>
 <dd>
 <div class="desc"></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">class PlayerGameClient(Client):
+    def __init__(
+        self: &#34;PlayerGameClient&#34;, server_addr: str, port: int, username: str
+    ) -&gt; None:
+        super().__init__(server_addr, port, username, spectator=False)
+        self._commands: list[str] = []
+
+    def run(self: &#34;PlayerGameClient&#34;) -&gt; NoReturn:
+        game = Strategy(self.username)
+
+        while True:
+            game.game_data = self.read_json()
+            game.main_propre()
+
+            self._commands = game.return_commands()
+
+            self.send_commands()
+
+    def send_commands(self: &#34;PlayerGameClient&#34;) -&gt; None:
+        data = {&#34;commands&#34;: self._commands}
+        print(&#34;sending&#34;, data)
+        self.send_json(data)
+        self._commands.clear()</code></pre>
+</details>
+<h3>Ancestors</h3>
+<ul class="hlist">
+<li><a title="chronobio.network.client.Client" href="../chronobio/network/client.html#chronobio.network.client.Client">Client</a></li>
+</ul>
+<h3>Methods</h3>
+<dl>
+<dt id="algorithme.client.PlayerGameClient.run"><code class="name flex">
+<span>def <span class="ident">run</span></span>(<span>self: <a title="algorithme.client.PlayerGameClient" href="#algorithme.client.PlayerGameClient">PlayerGameClient</a>) ‑> NoReturn</span>
+</code></dt>
+<dd>
+<div class="desc"></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def run(self: &#34;PlayerGameClient&#34;) -&gt; NoReturn:
+    game = Strategy(self.username)
+
+    while True:
+        game.game_data = self.read_json()
+        game.main_propre()
+
+        self._commands = game.return_commands()
+
+        self.send_commands()</code></pre>
+</details>
 </dd>
-<dt><code class="name"><a title="algorithme.modules" href="modules/index.html">algorithme.modules</a></code></dt>
+<dt id="algorithme.client.PlayerGameClient.send_commands"><code class="name flex">
+<span>def <span class="ident">send_commands</span></span>(<span>self: <a title="algorithme.client.PlayerGameClient" href="#algorithme.client.PlayerGameClient">PlayerGameClient</a>) ‑> None</span>
+</code></dt>
 <dd>
 <div class="desc"></div>
-</dd>
-<dt><code class="name"><a title="algorithme.strategie" href="strategie.html">algorithme.strategie</a></code></dt>
-<dd>
-<div class="desc"></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def send_commands(self: &#34;PlayerGameClient&#34;) -&gt; None:
+    data = {&#34;commands&#34;: self._commands}
+    print(&#34;sending&#34;, data)
+    self.send_json(data)
+    self._commands.clear()</code></pre>
+</details>
 </dd>
 </dl>
-</section>
-<section>
-</section>
-<section>
-</section>
-<section>
+</dd>
+</dl>
 </section>
 </article>
 <nav id="sidebar">
@@ -53,11 +183,20 @@
 <ul></ul>
 </div>
 <ul id="index">
-<li><h3><a href="#header-submodules">Sub-modules</a></h3>
+<li><h3>Super-module</h3>
 <ul>
-<li><code><a title="algorithme.client" href="client.html">algorithme.client</a></code></li>
-<li><code><a title="algorithme.modules" href="modules/index.html">algorithme.modules</a></code></li>
-<li><code><a title="algorithme.strategie" href="strategie.html">algorithme.strategie</a></code></li>
+<li><code><a title="algorithme" href="index.html">algorithme</a></code></li>
+</ul>
+</li>
+<li><h3><a href="#header-classes">Classes</a></h3>
+<ul>
+<li>
+<h4><code><a title="algorithme.client.PlayerGameClient" href="#algorithme.client.PlayerGameClient">PlayerGameClient</a></code></h4>
+<ul class="">
+<li><code><a title="algorithme.client.PlayerGameClient.run" href="#algorithme.client.PlayerGameClient.run">run</a></code></li>
+<li><code><a title="algorithme.client.PlayerGameClient.send_commands" href="#algorithme.client.PlayerGameClient.send_commands">send_commands</a></code></li>
+</ul>
+</li>
 </ul>
 </li>
 </ul>

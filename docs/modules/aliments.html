@@ -4,7 +4,7 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1" />
 <meta name="generator" content="pdoc 0.10.0" />
-<title>algorithme API documentation</title>
+<title>algorithme.modules.aliments API documentation</title>
 <meta name="description" content="" />
 <link rel="preload stylesheet" as="style" href="https://cdnjs.cloudflare.com/ajax/libs/10up-sanitize.css/11.0.1/sanitize.min.css" integrity="sha256-PK9q560IAAa6WVRRh76LtCaI8pjTJ2z11v0miyNNjrs=" crossorigin>
 <link rel="preload stylesheet" as="style" href="https://cdnjs.cloudflare.com/ajax/libs/10up-sanitize.css/11.0.1/typography.min.css" integrity="sha256-7l/o7C8jubJiy74VsKTidCy1yBkRtiUGbVkYBylBqUg=" crossorigin>
@@ -19,32 +19,87 @@
 <main>
 <article id="content">
 <header>
-<h1 class="title">Package <code>algorithme</code></h1>
+<h1 class="title">Module <code>algorithme.modules.aliments</code></h1>
 </header>
 <section id="section-intro">
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">from enum import IntEnum
+
+
+class Aliment(IntEnum):
+    NONE = 0
+    POTATO = 1
+    LEEK = 2
+    TOMATO = 3
+    ONION = 4
+    ZUCCHINI = 5</code></pre>
+</details>
 </section>
 <section>
-<h2 class="section-title" id="header-submodules">Sub-modules</h2>
+</section>
+<section>
+</section>
+<section>
+</section>
+<section>
+<h2 class="section-title" id="header-classes">Classes</h2>
 <dl>
-<dt><code class="name"><a title="algorithme.client" href="client.html">algorithme.client</a></code></dt>
+<dt id="algorithme.modules.aliments.Aliment"><code class="flex name class">
+<span>class <span class="ident">Aliment</span></span>
+<span>(</span><span>value, names=None, *, module=None, qualname=None, type=None, start=1)</span>
+</code></dt>
+<dd>
+<div class="desc"><p>An enumeration.</p></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">class Aliment(IntEnum):
+    NONE = 0
+    POTATO = 1
+    LEEK = 2
+    TOMATO = 3
+    ONION = 4
+    ZUCCHINI = 5</code></pre>
+</details>
+<h3>Ancestors</h3>
+<ul class="hlist">
+<li>enum.IntEnum</li>
+<li>builtins.int</li>
+<li>enum.Enum</li>
+</ul>
+<h3>Class variables</h3>
+<dl>
+<dt id="algorithme.modules.aliments.Aliment.LEEK"><code class="name">var <span class="ident">LEEK</span></code></dt>
 <dd>
 <div class="desc"></div>
 </dd>
-<dt><code class="name"><a title="algorithme.modules" href="modules/index.html">algorithme.modules</a></code></dt>
+<dt id="algorithme.modules.aliments.Aliment.NONE"><code class="name">var <span class="ident">NONE</span></code></dt>
 <dd>
 <div class="desc"></div>
 </dd>
-<dt><code class="name"><a title="algorithme.strategie" href="strategie.html">algorithme.strategie</a></code></dt>
+<dt id="algorithme.modules.aliments.Aliment.ONION"><code class="name">var <span class="ident">ONION</span></code></dt>
+<dd>
+<div class="desc"></div>
+</dd>
+<dt id="algorithme.modules.aliments.Aliment.POTATO"><code class="name">var <span class="ident">POTATO</span></code></dt>
+<dd>
+<div class="desc"></div>
+</dd>
+<dt id="algorithme.modules.aliments.Aliment.TOMATO"><code class="name">var <span class="ident">TOMATO</span></code></dt>
+<dd>
+<div class="desc"></div>
+</dd>
+<dt id="algorithme.modules.aliments.Aliment.ZUCCHINI"><code class="name">var <span class="ident">ZUCCHINI</span></code></dt>
 <dd>
 <div class="desc"></div>
 </dd>
 </dl>
-</section>
-<section>
-</section>
-<section>
-</section>
-<section>
+</dd>
+</dl>
 </section>
 </article>
 <nav id="sidebar">
@@ -53,11 +108,24 @@
 <ul></ul>
 </div>
 <ul id="index">
-<li><h3><a href="#header-submodules">Sub-modules</a></h3>
+<li><h3>Super-module</h3>
 <ul>
-<li><code><a title="algorithme.client" href="client.html">algorithme.client</a></code></li>
-<li><code><a title="algorithme.modules" href="modules/index.html">algorithme.modules</a></code></li>
-<li><code><a title="algorithme.strategie" href="strategie.html">algorithme.strategie</a></code></li>
+<li><code><a title="algorithme.modules" href="index.html">algorithme.modules</a></code></li>
+</ul>
+</li>
+<li><h3><a href="#header-classes">Classes</a></h3>
+<ul>
+<li>
+<h4><code><a title="algorithme.modules.aliments.Aliment" href="#algorithme.modules.aliments.Aliment">Aliment</a></code></h4>
+<ul class="two-column">
+<li><code><a title="algorithme.modules.aliments.Aliment.LEEK" href="#algorithme.modules.aliments.Aliment.LEEK">LEEK</a></code></li>
+<li><code><a title="algorithme.modules.aliments.Aliment.NONE" href="#algorithme.modules.aliments.Aliment.NONE">NONE</a></code></li>
+<li><code><a title="algorithme.modules.aliments.Aliment.ONION" href="#algorithme.modules.aliments.Aliment.ONION">ONION</a></code></li>
+<li><code><a title="algorithme.modules.aliments.Aliment.POTATO" href="#algorithme.modules.aliments.Aliment.POTATO">POTATO</a></code></li>
+<li><code><a title="algorithme.modules.aliments.Aliment.TOMATO" href="#algorithme.modules.aliments.Aliment.TOMATO">TOMATO</a></code></li>
+<li><code><a title="algorithme.modules.aliments.Aliment.ZUCCHINI" href="#algorithme.modules.aliments.Aliment.ZUCCHINI">ZUCCHINI</a></code></li>
+</ul>
+</li>
 </ul>
 </li>
 </ul>

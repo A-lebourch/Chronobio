@@ -1,0 +1,837 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1" />
+<meta name="generator" content="pdoc 0.10.0" />
+<title>algorithme.modules.data_form API documentation</title>
+<meta name="description" content="" />
+<link rel="preload stylesheet" as="style" href="https://cdnjs.cloudflare.com/ajax/libs/10up-sanitize.css/11.0.1/sanitize.min.css" integrity="sha256-PK9q560IAAa6WVRRh76LtCaI8pjTJ2z11v0miyNNjrs=" crossorigin>
+<link rel="preload stylesheet" as="style" href="https://cdnjs.cloudflare.com/ajax/libs/10up-sanitize.css/11.0.1/typography.min.css" integrity="sha256-7l/o7C8jubJiy74VsKTidCy1yBkRtiUGbVkYBylBqUg=" crossorigin>
+<link rel="stylesheet preload" as="style" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.1.1/styles/github.min.css" crossorigin>
+<style>:root{--highlight-color:#fe9}.flex{display:flex !important}body{line-height:1.5em}#content{padding:20px}#sidebar{padding:30px;overflow:hidden}#sidebar > *:last-child{margin-bottom:2cm}.http-server-breadcrumbs{font-size:130%;margin:0 0 15px 0}#footer{font-size:.75em;padding:5px 30px;border-top:1px solid #ddd;text-align:right}#footer p{margin:0 0 0 1em;display:inline-block}#footer p:last-child{margin-right:30px}h1,h2,h3,h4,h5{font-weight:300}h1{font-size:2.5em;line-height:1.1em}h2{font-size:1.75em;margin:1em 0 .50em 0}h3{font-size:1.4em;margin:25px 0 10px 0}h4{margin:0;font-size:105%}h1:target,h2:target,h3:target,h4:target,h5:target,h6:target{background:var(--highlight-color);padding:.2em 0}a{color:#058;text-decoration:none;transition:color .3s ease-in-out}a:hover{color:#e82}.title code{font-weight:bold}h2[id^="header-"]{margin-top:2em}.ident{color:#900}pre code{background:#f8f8f8;font-size:.8em;line-height:1.4em}code{background:#f2f2f1;padding:1px 4px;overflow-wrap:break-word}h1 code{background:transparent}pre{background:#f8f8f8;border:0;border-top:1px solid #ccc;border-bottom:1px solid #ccc;margin:1em 0;padding:1ex}#http-server-module-list{display:flex;flex-flow:column}#http-server-module-list div{display:flex}#http-server-module-list dt{min-width:10%}#http-server-module-list p{margin-top:0}.toc ul,#index{list-style-type:none;margin:0;padding:0}#index code{background:transparent}#index h3{border-bottom:1px solid #ddd}#index ul{padding:0}#index h4{margin-top:.6em;font-weight:bold}@media (min-width:200ex){#index .two-column{column-count:2}}@media (min-width:300ex){#index .two-column{column-count:3}}dl{margin-bottom:2em}dl dl:last-child{margin-bottom:4em}dd{margin:0 0 1em 3em}#header-classes + dl > dd{margin-bottom:3em}dd dd{margin-left:2em}dd p{margin:10px 0}.name{background:#eee;font-weight:bold;font-size:.85em;padding:5px 10px;display:inline-block;min-width:40%}.name:hover{background:#e0e0e0}dt:target .name{background:var(--highlight-color)}.name > span:first-child{white-space:nowrap}.name.class > span:nth-child(2){margin-left:.4em}.inherited{color:#999;border-left:5px solid #eee;padding-left:1em}.inheritance em{font-style:normal;font-weight:bold}.desc h2{font-weight:400;font-size:1.25em}.desc h3{font-size:1em}.desc dt code{background:inherit}.source summary,.git-link-div{color:#666;text-align:right;font-weight:400;font-size:.8em;text-transform:uppercase}.source summary > *{white-space:nowrap;cursor:pointer}.git-link{color:inherit;margin-left:1em}.source pre{max-height:500px;overflow:auto;margin:0}.source pre code{font-size:12px;overflow:visible}.hlist{list-style:none}.hlist li{display:inline}.hlist li:after{content:',\2002'}.hlist li:last-child:after{content:none}.hlist .hlist{display:inline;padding-left:1em}img{max-width:100%}td{padding:0 .5em}.admonition{padding:.1em .5em;margin-bottom:1em}.admonition-title{font-weight:bold}.admonition.note,.admonition.info,.admonition.important{background:#aef}.admonition.todo,.admonition.versionadded,.admonition.tip,.admonition.hint{background:#dfd}.admonition.warning,.admonition.versionchanged,.admonition.deprecated{background:#fd4}.admonition.error,.admonition.danger,.admonition.caution{background:lightpink}</style>
+<style media="screen and (min-width: 700px)">@media screen and (min-width:700px){#sidebar{width:30%;height:100vh;overflow:auto;position:sticky;top:0}#content{width:70%;max-width:100ch;padding:3em 4em;border-left:1px solid #ddd}pre code{font-size:1em}.item .name{font-size:1em}main{display:flex;flex-direction:row-reverse;justify-content:flex-end}.toc ul ul,#index ul{padding-left:1.5em}.toc > ul > li{margin-top:.5em}}</style>
+<style media="print">@media print{#sidebar h1{page-break-before:always}.source{display:none}}@media print{*{background:transparent !important;color:#000 !important;box-shadow:none !important;text-shadow:none !important}a[href]:after{content:" (" attr(href) ")";font-size:90%}a[href][title]:after{content:none}abbr[title]:after{content:" (" attr(title) ")"}.ir a:after,a[href^="javascript:"]:after,a[href^="#"]:after{content:""}pre,blockquote{border:1px solid #999;page-break-inside:avoid}thead{display:table-header-group}tr,img{page-break-inside:avoid}img{max-width:100% !important}@page{margin:0.5cm}p,h2,h3{orphans:3;widows:3}h1,h2,h3,h4,h5,h6{page-break-after:avoid}}</style>
+<script defer src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.1.1/highlight.min.js" integrity="sha256-Uv3H6lx7dJmRfRvH8TH6kJD1TSK1aFcwgx+mdg3epi8=" crossorigin></script>
+<script>window.addEventListener('DOMContentLoaded', () => hljs.initHighlighting())</script>
+</head>
+<body>
+<main>
+<article id="content">
+<header>
+<h1 class="title">Module <code>algorithme.modules.data_form</code></h1>
+</header>
+<section id="section-intro">
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">from typing import Union
+from pydantic import BaseModel
+
+
+class Field(BaseModel):
+    content: str
+    needed_water: int
+    bought: bool
+    location: str
+
+
+class Tractor(BaseModel):
+    location: str
+    id: int
+
+
+class Loan(BaseModel):
+    amount: int
+    start_day: int
+
+
+class SoupFactory(BaseModel):
+    days_off: int
+    stock: dict
+
+
+class Employee(BaseModel):
+    id: int
+    location: str
+    tractor: Union[None, Tractor]
+    salary: int
+
+
+class Owner(BaseModel):
+    blocked: bool
+    name: str
+    money: int
+    score: int
+    fields: list[Field]
+    tractors: list[Tractor]
+    loans: list[Loan]
+    soup_factory: SoupFactory
+    employees: list[Employee]
+    events: list
+
+
+class General(BaseModel):
+    day: int
+    greenhouse_gas: int
+    events: list
+    farms: list[Owner]</code></pre>
+</details>
+</section>
+<section>
+</section>
+<section>
+</section>
+<section>
+</section>
+<section>
+<h2 class="section-title" id="header-classes">Classes</h2>
+<dl>
+<dt id="algorithme.modules.data_form.Employee"><code class="flex name class">
+<span>class <span class="ident">Employee</span></span>
+<span>(</span><span>**data: Any)</span>
+</code></dt>
+<dd>
+<div class="desc"><p>Usage docs: <a href="https://docs.pydantic.dev/2.4/concepts/models/">https://docs.pydantic.dev/2.4/concepts/models/</a></p>
+<p>A base class for creating Pydantic models.</p>
+<h2 id="attributes">Attributes</h2>
+<dl>
+<dt><strong><code>__class_vars__</code></strong></dt>
+<dd>The names of classvars defined on the model.</dd>
+<dt><strong><code>__private_attributes__</code></strong></dt>
+<dd>Metadata about the private attributes of the model.</dd>
+<dt><strong><code>__signature__</code></strong></dt>
+<dd>The signature for instantiating the model.</dd>
+<dt><strong><code>__pydantic_complete__</code></strong></dt>
+<dd>Whether model building is completed, or if there are still undefined fields.</dd>
+<dt><strong><code>__pydantic_core_schema__</code></strong></dt>
+<dd>The pydantic-core schema used to build the SchemaValidator and SchemaSerializer.</dd>
+<dt><strong><code>__pydantic_custom_init__</code></strong></dt>
+<dd>Whether the model has a custom <code>__init__</code> function.</dd>
+<dt><strong><code>__pydantic_decorators__</code></strong></dt>
+<dd>Metadata containing the decorators defined on the model.
+This replaces <code>Model.__validators__</code> and <code>Model.__root_validators__</code> from Pydantic V1.</dd>
+<dt><strong><code>__pydantic_generic_metadata__</code></strong></dt>
+<dd>Metadata for generic models; contains data used for a similar purpose to
+<strong>args</strong>, <strong>origin</strong>, <strong>parameters</strong> in typing-module generics. May eventually be replaced by these.</dd>
+<dt><strong><code>__pydantic_parent_namespace__</code></strong></dt>
+<dd>Parent namespace of the model, used for automatic rebuilding of models.</dd>
+<dt><strong><code>__pydantic_post_init__</code></strong></dt>
+<dd>The name of the post-init method for the model, if defined.</dd>
+<dt><strong><code>__pydantic_root_model__</code></strong></dt>
+<dd>Whether the model is a <code>RootModel</code>.</dd>
+<dt><strong><code>__pydantic_serializer__</code></strong></dt>
+<dd>The pydantic-core SchemaSerializer used to dump instances of the model.</dd>
+<dt><strong><code>__pydantic_validator__</code></strong></dt>
+<dd>The pydantic-core SchemaValidator used to validate instances of the model.</dd>
+<dt><strong><code>__pydantic_extra__</code></strong></dt>
+<dd>An instance attribute with the values of extra fields from validation when
+<code>model_config['extra'] == 'allow'</code>.</dd>
+<dt><strong><code>__pydantic_fields_set__</code></strong></dt>
+<dd>An instance attribute with the names of fields explicitly specified during validation.</dd>
+<dt><strong><code>__pydantic_private__</code></strong></dt>
+<dd>Instance attribute with the values of private attributes set on the model instance.</dd>
+</dl>
+<p>Create a new model by parsing and validating input data from keyword arguments.</p>
+<p>Raises [<code>ValidationError</code>][pydantic_core.ValidationError] if the input data cannot be
+validated to form a valid model.</p>
+<p><code>__init__</code> uses <code>__pydantic_self__</code> instead of the more common <code>self</code> for the first arg to
+allow <code>self</code> as a field name.</p></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">class Employee(BaseModel):
+    id: int
+    location: str
+    tractor: Union[None, Tractor]
+    salary: int</code></pre>
+</details>
+<h3>Ancestors</h3>
+<ul class="hlist">
+<li>pydantic.main.BaseModel</li>
+</ul>
+<h3>Class variables</h3>
+<dl>
+<dt id="algorithme.modules.data_form.Employee.id"><code class="name">var <span class="ident">id</span> : int</code></dt>
+<dd>
+<div class="desc"></div>
+</dd>
+<dt id="algorithme.modules.data_form.Employee.location"><code class="name">var <span class="ident">location</span> : str</code></dt>
+<dd>
+<div class="desc"></div>
+</dd>
+<dt id="algorithme.modules.data_form.Employee.model_config"><code class="name">var <span class="ident">model_config</span></code></dt>
+<dd>
+<div class="desc"></div>
+</dd>
+<dt id="algorithme.modules.data_form.Employee.model_fields"><code class="name">var <span class="ident">model_fields</span></code></dt>
+<dd>
+<div class="desc"></div>
+</dd>
+<dt id="algorithme.modules.data_form.Employee.salary"><code class="name">var <span class="ident">salary</span> : int</code></dt>
+<dd>
+<div class="desc"></div>
+</dd>
+<dt id="algorithme.modules.data_form.Employee.tractor"><code class="name">var <span class="ident">tractor</span> : Optional[None]</code></dt>
+<dd>
+<div class="desc"></div>
+</dd>
+</dl>
+</dd>
+<dt id="algorithme.modules.data_form.Field"><code class="flex name class">
+<span>class <span class="ident">Field</span></span>
+<span>(</span><span>**data: Any)</span>
+</code></dt>
+<dd>
+<div class="desc"><p>Usage docs: <a href="https://docs.pydantic.dev/2.4/concepts/models/">https://docs.pydantic.dev/2.4/concepts/models/</a></p>
+<p>A base class for creating Pydantic models.</p>
+<h2 id="attributes">Attributes</h2>
+<dl>
+<dt><strong><code>__class_vars__</code></strong></dt>
+<dd>The names of classvars defined on the model.</dd>
+<dt><strong><code>__private_attributes__</code></strong></dt>
+<dd>Metadata about the private attributes of the model.</dd>
+<dt><strong><code>__signature__</code></strong></dt>
+<dd>The signature for instantiating the model.</dd>
+<dt><strong><code>__pydantic_complete__</code></strong></dt>
+<dd>Whether model building is completed, or if there are still undefined fields.</dd>
+<dt><strong><code>__pydantic_core_schema__</code></strong></dt>
+<dd>The pydantic-core schema used to build the SchemaValidator and SchemaSerializer.</dd>
+<dt><strong><code>__pydantic_custom_init__</code></strong></dt>
+<dd>Whether the model has a custom <code>__init__</code> function.</dd>
+<dt><strong><code>__pydantic_decorators__</code></strong></dt>
+<dd>Metadata containing the decorators defined on the model.
+This replaces <code>Model.__validators__</code> and <code>Model.__root_validators__</code> from Pydantic V1.</dd>
+<dt><strong><code>__pydantic_generic_metadata__</code></strong></dt>
+<dd>Metadata for generic models; contains data used for a similar purpose to
+<strong>args</strong>, <strong>origin</strong>, <strong>parameters</strong> in typing-module generics. May eventually be replaced by these.</dd>
+<dt><strong><code>__pydantic_parent_namespace__</code></strong></dt>
+<dd>Parent namespace of the model, used for automatic rebuilding of models.</dd>
+<dt><strong><code>__pydantic_post_init__</code></strong></dt>
+<dd>The name of the post-init method for the model, if defined.</dd>
+<dt><strong><code>__pydantic_root_model__</code></strong></dt>
+<dd>Whether the model is a <code>RootModel</code>.</dd>
+<dt><strong><code>__pydantic_serializer__</code></strong></dt>
+<dd>The pydantic-core SchemaSerializer used to dump instances of the model.</dd>
+<dt><strong><code>__pydantic_validator__</code></strong></dt>
+<dd>The pydantic-core SchemaValidator used to validate instances of the model.</dd>
+<dt><strong><code>__pydantic_extra__</code></strong></dt>
+<dd>An instance attribute with the values of extra fields from validation when
+<code>model_config['extra'] == 'allow'</code>.</dd>
+<dt><strong><code>__pydantic_fields_set__</code></strong></dt>
+<dd>An instance attribute with the names of fields explicitly specified during validation.</dd>
+<dt><strong><code>__pydantic_private__</code></strong></dt>
+<dd>Instance attribute with the values of private attributes set on the model instance.</dd>
+</dl>
+<p>Create a new model by parsing and validating input data from keyword arguments.</p>
+<p>Raises [<code>ValidationError</code>][pydantic_core.ValidationError] if the input data cannot be
+validated to form a valid model.</p>
+<p><code>__init__</code> uses <code>__pydantic_self__</code> instead of the more common <code>self</code> for the first arg to
+allow <code>self</code> as a field name.</p></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">class Field(BaseModel):
+    content: str
+    needed_water: int
+    bought: bool
+    location: str</code></pre>
+</details>
+<h3>Ancestors</h3>
+<ul class="hlist">
+<li>pydantic.main.BaseModel</li>
+</ul>
+<h3>Class variables</h3>
+<dl>
+<dt id="algorithme.modules.data_form.Field.bought"><code class="name">var <span class="ident">bought</span> : bool</code></dt>
+<dd>
+<div class="desc"></div>
+</dd>
+<dt id="algorithme.modules.data_form.Field.content"><code class="name">var <span class="ident">content</span> : str</code></dt>
+<dd>
+<div class="desc"></div>
+</dd>
+<dt id="algorithme.modules.data_form.Field.location"><code class="name">var <span class="ident">location</span> : str</code></dt>
+<dd>
+<div class="desc"></div>
+</dd>
+<dt id="algorithme.modules.data_form.Field.model_config"><code class="name">var <span class="ident">model_config</span></code></dt>
+<dd>
+<div class="desc"></div>
+</dd>
+<dt id="algorithme.modules.data_form.Field.model_fields"><code class="name">var <span class="ident">model_fields</span></code></dt>
+<dd>
+<div class="desc"></div>
+</dd>
+<dt id="algorithme.modules.data_form.Field.needed_water"><code class="name">var <span class="ident">needed_water</span> : int</code></dt>
+<dd>
+<div class="desc"></div>
+</dd>
+</dl>
+</dd>
+<dt id="algorithme.modules.data_form.General"><code class="flex name class">
+<span>class <span class="ident">General</span></span>
+<span>(</span><span>**data: Any)</span>
+</code></dt>
+<dd>
+<div class="desc"><p>Usage docs: <a href="https://docs.pydantic.dev/2.4/concepts/models/">https://docs.pydantic.dev/2.4/concepts/models/</a></p>
+<p>A base class for creating Pydantic models.</p>
+<h2 id="attributes">Attributes</h2>
+<dl>
+<dt><strong><code>__class_vars__</code></strong></dt>
+<dd>The names of classvars defined on the model.</dd>
+<dt><strong><code>__private_attributes__</code></strong></dt>
+<dd>Metadata about the private attributes of the model.</dd>
+<dt><strong><code>__signature__</code></strong></dt>
+<dd>The signature for instantiating the model.</dd>
+<dt><strong><code>__pydantic_complete__</code></strong></dt>
+<dd>Whether model building is completed, or if there are still undefined fields.</dd>
+<dt><strong><code>__pydantic_core_schema__</code></strong></dt>
+<dd>The pydantic-core schema used to build the SchemaValidator and SchemaSerializer.</dd>
+<dt><strong><code>__pydantic_custom_init__</code></strong></dt>
+<dd>Whether the model has a custom <code>__init__</code> function.</dd>
+<dt><strong><code>__pydantic_decorators__</code></strong></dt>
+<dd>Metadata containing the decorators defined on the model.
+This replaces <code>Model.__validators__</code> and <code>Model.__root_validators__</code> from Pydantic V1.</dd>
+<dt><strong><code>__pydantic_generic_metadata__</code></strong></dt>
+<dd>Metadata for generic models; contains data used for a similar purpose to
+<strong>args</strong>, <strong>origin</strong>, <strong>parameters</strong> in typing-module generics. May eventually be replaced by these.</dd>
+<dt><strong><code>__pydantic_parent_namespace__</code></strong></dt>
+<dd>Parent namespace of the model, used for automatic rebuilding of models.</dd>
+<dt><strong><code>__pydantic_post_init__</code></strong></dt>
+<dd>The name of the post-init method for the model, if defined.</dd>
+<dt><strong><code>__pydantic_root_model__</code></strong></dt>
+<dd>Whether the model is a <code>RootModel</code>.</dd>
+<dt><strong><code>__pydantic_serializer__</code></strong></dt>
+<dd>The pydantic-core SchemaSerializer used to dump instances of the model.</dd>
+<dt><strong><code>__pydantic_validator__</code></strong></dt>
+<dd>The pydantic-core SchemaValidator used to validate instances of the model.</dd>
+<dt><strong><code>__pydantic_extra__</code></strong></dt>
+<dd>An instance attribute with the values of extra fields from validation when
+<code>model_config['extra'] == 'allow'</code>.</dd>
+<dt><strong><code>__pydantic_fields_set__</code></strong></dt>
+<dd>An instance attribute with the names of fields explicitly specified during validation.</dd>
+<dt><strong><code>__pydantic_private__</code></strong></dt>
+<dd>Instance attribute with the values of private attributes set on the model instance.</dd>
+</dl>
+<p>Create a new model by parsing and validating input data from keyword arguments.</p>
+<p>Raises [<code>ValidationError</code>][pydantic_core.ValidationError] if the input data cannot be
+validated to form a valid model.</p>
+<p><code>__init__</code> uses <code>__pydantic_self__</code> instead of the more common <code>self</code> for the first arg to
+allow <code>self</code> as a field name.</p></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">class General(BaseModel):
+    day: int
+    greenhouse_gas: int
+    events: list
+    farms: list[Owner]</code></pre>
+</details>
+<h3>Ancestors</h3>
+<ul class="hlist">
+<li>pydantic.main.BaseModel</li>
+</ul>
+<h3>Class variables</h3>
+<dl>
+<dt id="algorithme.modules.data_form.General.day"><code class="name">var <span class="ident">day</span> : int</code></dt>
+<dd>
+<div class="desc"></div>
+</dd>
+<dt id="algorithme.modules.data_form.General.events"><code class="name">var <span class="ident">events</span> : list</code></dt>
+<dd>
+<div class="desc"></div>
+</dd>
+<dt id="algorithme.modules.data_form.General.farms"><code class="name">var <span class="ident">farms</span> : list[<a title="algorithme.modules.data_form.Owner" href="#algorithme.modules.data_form.Owner">Owner</a>]</code></dt>
+<dd>
+<div class="desc"></div>
+</dd>
+<dt id="algorithme.modules.data_form.General.greenhouse_gas"><code class="name">var <span class="ident">greenhouse_gas</span> : int</code></dt>
+<dd>
+<div class="desc"></div>
+</dd>
+<dt id="algorithme.modules.data_form.General.model_config"><code class="name">var <span class="ident">model_config</span></code></dt>
+<dd>
+<div class="desc"></div>
+</dd>
+<dt id="algorithme.modules.data_form.General.model_fields"><code class="name">var <span class="ident">model_fields</span></code></dt>
+<dd>
+<div class="desc"></div>
+</dd>
+</dl>
+</dd>
+<dt id="algorithme.modules.data_form.Loan"><code class="flex name class">
+<span>class <span class="ident">Loan</span></span>
+<span>(</span><span>**data: Any)</span>
+</code></dt>
+<dd>
+<div class="desc"><p>Usage docs: <a href="https://docs.pydantic.dev/2.4/concepts/models/">https://docs.pydantic.dev/2.4/concepts/models/</a></p>
+<p>A base class for creating Pydantic models.</p>
+<h2 id="attributes">Attributes</h2>
+<dl>
+<dt><strong><code>__class_vars__</code></strong></dt>
+<dd>The names of classvars defined on the model.</dd>
+<dt><strong><code>__private_attributes__</code></strong></dt>
+<dd>Metadata about the private attributes of the model.</dd>
+<dt><strong><code>__signature__</code></strong></dt>
+<dd>The signature for instantiating the model.</dd>
+<dt><strong><code>__pydantic_complete__</code></strong></dt>
+<dd>Whether model building is completed, or if there are still undefined fields.</dd>
+<dt><strong><code>__pydantic_core_schema__</code></strong></dt>
+<dd>The pydantic-core schema used to build the SchemaValidator and SchemaSerializer.</dd>
+<dt><strong><code>__pydantic_custom_init__</code></strong></dt>
+<dd>Whether the model has a custom <code>__init__</code> function.</dd>
+<dt><strong><code>__pydantic_decorators__</code></strong></dt>
+<dd>Metadata containing the decorators defined on the model.
+This replaces <code>Model.__validators__</code> and <code>Model.__root_validators__</code> from Pydantic V1.</dd>
+<dt><strong><code>__pydantic_generic_metadata__</code></strong></dt>
+<dd>Metadata for generic models; contains data used for a similar purpose to
+<strong>args</strong>, <strong>origin</strong>, <strong>parameters</strong> in typing-module generics. May eventually be replaced by these.</dd>
+<dt><strong><code>__pydantic_parent_namespace__</code></strong></dt>
+<dd>Parent namespace of the model, used for automatic rebuilding of models.</dd>
+<dt><strong><code>__pydantic_post_init__</code></strong></dt>
+<dd>The name of the post-init method for the model, if defined.</dd>
+<dt><strong><code>__pydantic_root_model__</code></strong></dt>
+<dd>Whether the model is a <code>RootModel</code>.</dd>
+<dt><strong><code>__pydantic_serializer__</code></strong></dt>
+<dd>The pydantic-core SchemaSerializer used to dump instances of the model.</dd>
+<dt><strong><code>__pydantic_validator__</code></strong></dt>
+<dd>The pydantic-core SchemaValidator used to validate instances of the model.</dd>
+<dt><strong><code>__pydantic_extra__</code></strong></dt>
+<dd>An instance attribute with the values of extra fields from validation when
+<code>model_config['extra'] == 'allow'</code>.</dd>
+<dt><strong><code>__pydantic_fields_set__</code></strong></dt>
+<dd>An instance attribute with the names of fields explicitly specified during validation.</dd>
+<dt><strong><code>__pydantic_private__</code></strong></dt>
+<dd>Instance attribute with the values of private attributes set on the model instance.</dd>
+</dl>
+<p>Create a new model by parsing and validating input data from keyword arguments.</p>
+<p>Raises [<code>ValidationError</code>][pydantic_core.ValidationError] if the input data cannot be
+validated to form a valid model.</p>
+<p><code>__init__</code> uses <code>__pydantic_self__</code> instead of the more common <code>self</code> for the first arg to
+allow <code>self</code> as a field name.</p></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">class Loan(BaseModel):
+    amount: int
+    start_day: int</code></pre>
+</details>
+<h3>Ancestors</h3>
+<ul class="hlist">
+<li>pydantic.main.BaseModel</li>
+</ul>
+<h3>Class variables</h3>
+<dl>
+<dt id="algorithme.modules.data_form.Loan.amount"><code class="name">var <span class="ident">amount</span> : int</code></dt>
+<dd>
+<div class="desc"></div>
+</dd>
+<dt id="algorithme.modules.data_form.Loan.model_config"><code class="name">var <span class="ident">model_config</span></code></dt>
+<dd>
+<div class="desc"></div>
+</dd>
+<dt id="algorithme.modules.data_form.Loan.model_fields"><code class="name">var <span class="ident">model_fields</span></code></dt>
+<dd>
+<div class="desc"></div>
+</dd>
+<dt id="algorithme.modules.data_form.Loan.start_day"><code class="name">var <span class="ident">start_day</span> : int</code></dt>
+<dd>
+<div class="desc"></div>
+</dd>
+</dl>
+</dd>
+<dt id="algorithme.modules.data_form.Owner"><code class="flex name class">
+<span>class <span class="ident">Owner</span></span>
+<span>(</span><span>**data: Any)</span>
+</code></dt>
+<dd>
+<div class="desc"><p>Usage docs: <a href="https://docs.pydantic.dev/2.4/concepts/models/">https://docs.pydantic.dev/2.4/concepts/models/</a></p>
+<p>A base class for creating Pydantic models.</p>
+<h2 id="attributes">Attributes</h2>
+<dl>
+<dt><strong><code>__class_vars__</code></strong></dt>
+<dd>The names of classvars defined on the model.</dd>
+<dt><strong><code>__private_attributes__</code></strong></dt>
+<dd>Metadata about the private attributes of the model.</dd>
+<dt><strong><code>__signature__</code></strong></dt>
+<dd>The signature for instantiating the model.</dd>
+<dt><strong><code>__pydantic_complete__</code></strong></dt>
+<dd>Whether model building is completed, or if there are still undefined fields.</dd>
+<dt><strong><code>__pydantic_core_schema__</code></strong></dt>
+<dd>The pydantic-core schema used to build the SchemaValidator and SchemaSerializer.</dd>
+<dt><strong><code>__pydantic_custom_init__</code></strong></dt>
+<dd>Whether the model has a custom <code>__init__</code> function.</dd>
+<dt><strong><code>__pydantic_decorators__</code></strong></dt>
+<dd>Metadata containing the decorators defined on the model.
+This replaces <code>Model.__validators__</code> and <code>Model.__root_validators__</code> from Pydantic V1.</dd>
+<dt><strong><code>__pydantic_generic_metadata__</code></strong></dt>
+<dd>Metadata for generic models; contains data used for a similar purpose to
+<strong>args</strong>, <strong>origin</strong>, <strong>parameters</strong> in typing-module generics. May eventually be replaced by these.</dd>
+<dt><strong><code>__pydantic_parent_namespace__</code></strong></dt>
+<dd>Parent namespace of the model, used for automatic rebuilding of models.</dd>
+<dt><strong><code>__pydantic_post_init__</code></strong></dt>
+<dd>The name of the post-init method for the model, if defined.</dd>
+<dt><strong><code>__pydantic_root_model__</code></strong></dt>
+<dd>Whether the model is a <code>RootModel</code>.</dd>
+<dt><strong><code>__pydantic_serializer__</code></strong></dt>
+<dd>The pydantic-core SchemaSerializer used to dump instances of the model.</dd>
+<dt><strong><code>__pydantic_validator__</code></strong></dt>
+<dd>The pydantic-core SchemaValidator used to validate instances of the model.</dd>
+<dt><strong><code>__pydantic_extra__</code></strong></dt>
+<dd>An instance attribute with the values of extra fields from validation when
+<code>model_config['extra'] == 'allow'</code>.</dd>
+<dt><strong><code>__pydantic_fields_set__</code></strong></dt>
+<dd>An instance attribute with the names of fields explicitly specified during validation.</dd>
+<dt><strong><code>__pydantic_private__</code></strong></dt>
+<dd>Instance attribute with the values of private attributes set on the model instance.</dd>
+</dl>
+<p>Create a new model by parsing and validating input data from keyword arguments.</p>
+<p>Raises [<code>ValidationError</code>][pydantic_core.ValidationError] if the input data cannot be
+validated to form a valid model.</p>
+<p><code>__init__</code> uses <code>__pydantic_self__</code> instead of the more common <code>self</code> for the first arg to
+allow <code>self</code> as a field name.</p></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">class Owner(BaseModel):
+    blocked: bool
+    name: str
+    money: int
+    score: int
+    fields: list[Field]
+    tractors: list[Tractor]
+    loans: list[Loan]
+    soup_factory: SoupFactory
+    employees: list[Employee]
+    events: list</code></pre>
+</details>
+<h3>Ancestors</h3>
+<ul class="hlist">
+<li>pydantic.main.BaseModel</li>
+</ul>
+<h3>Class variables</h3>
+<dl>
+<dt id="algorithme.modules.data_form.Owner.blocked"><code class="name">var <span class="ident">blocked</span> : bool</code></dt>
+<dd>
+<div class="desc"></div>
+</dd>
+<dt id="algorithme.modules.data_form.Owner.employees"><code class="name">var <span class="ident">employees</span> : list[<a title="algorithme.modules.data_form.Employee" href="#algorithme.modules.data_form.Employee">Employee</a>]</code></dt>
+<dd>
+<div class="desc"></div>
+</dd>
+<dt id="algorithme.modules.data_form.Owner.events"><code class="name">var <span class="ident">events</span> : list</code></dt>
+<dd>
+<div class="desc"></div>
+</dd>
+<dt id="algorithme.modules.data_form.Owner.fields"><code class="name">var <span class="ident">fields</span> : list[<a title="algorithme.modules.data_form.Field" href="#algorithme.modules.data_form.Field">Field</a>]</code></dt>
+<dd>
+<div class="desc"></div>
+</dd>
+<dt id="algorithme.modules.data_form.Owner.loans"><code class="name">var <span class="ident">loans</span> : list[<a title="algorithme.modules.data_form.Loan" href="#algorithme.modules.data_form.Loan">Loan</a>]</code></dt>
+<dd>
+<div class="desc"></div>
+</dd>
+<dt id="algorithme.modules.data_form.Owner.model_config"><code class="name">var <span class="ident">model_config</span></code></dt>
+<dd>
+<div class="desc"></div>
+</dd>
+<dt id="algorithme.modules.data_form.Owner.model_fields"><code class="name">var <span class="ident">model_fields</span></code></dt>
+<dd>
+<div class="desc"></div>
+</dd>
+<dt id="algorithme.modules.data_form.Owner.money"><code class="name">var <span class="ident">money</span> : int</code></dt>
+<dd>
+<div class="desc"></div>
+</dd>
+<dt id="algorithme.modules.data_form.Owner.name"><code class="name">var <span class="ident">name</span> : str</code></dt>
+<dd>
+<div class="desc"></div>
+</dd>
+<dt id="algorithme.modules.data_form.Owner.score"><code class="name">var <span class="ident">score</span> : int</code></dt>
+<dd>
+<div class="desc"></div>
+</dd>
+<dt id="algorithme.modules.data_form.Owner.soup_factory"><code class="name">var <span class="ident">soup_factory</span> : <a title="algorithme.modules.data_form.SoupFactory" href="#algorithme.modules.data_form.SoupFactory">SoupFactory</a></code></dt>
+<dd>
+<div class="desc"></div>
+</dd>
+<dt id="algorithme.modules.data_form.Owner.tractors"><code class="name">var <span class="ident">tractors</span> : list[<a title="algorithme.modules.data_form.Tractor" href="#algorithme.modules.data_form.Tractor">Tractor</a>]</code></dt>
+<dd>
+<div class="desc"></div>
+</dd>
+</dl>
+</dd>
+<dt id="algorithme.modules.data_form.SoupFactory"><code class="flex name class">
+<span>class <span class="ident">SoupFactory</span></span>
+<span>(</span><span>**data: Any)</span>
+</code></dt>
+<dd>
+<div class="desc"><p>Usage docs: <a href="https://docs.pydantic.dev/2.4/concepts/models/">https://docs.pydantic.dev/2.4/concepts/models/</a></p>
+<p>A base class for creating Pydantic models.</p>
+<h2 id="attributes">Attributes</h2>
+<dl>
+<dt><strong><code>__class_vars__</code></strong></dt>
+<dd>The names of classvars defined on the model.</dd>
+<dt><strong><code>__private_attributes__</code></strong></dt>
+<dd>Metadata about the private attributes of the model.</dd>
+<dt><strong><code>__signature__</code></strong></dt>
+<dd>The signature for instantiating the model.</dd>
+<dt><strong><code>__pydantic_complete__</code></strong></dt>
+<dd>Whether model building is completed, or if there are still undefined fields.</dd>
+<dt><strong><code>__pydantic_core_schema__</code></strong></dt>
+<dd>The pydantic-core schema used to build the SchemaValidator and SchemaSerializer.</dd>
+<dt><strong><code>__pydantic_custom_init__</code></strong></dt>
+<dd>Whether the model has a custom <code>__init__</code> function.</dd>
+<dt><strong><code>__pydantic_decorators__</code></strong></dt>
+<dd>Metadata containing the decorators defined on the model.
+This replaces <code>Model.__validators__</code> and <code>Model.__root_validators__</code> from Pydantic V1.</dd>
+<dt><strong><code>__pydantic_generic_metadata__</code></strong></dt>
+<dd>Metadata for generic models; contains data used for a similar purpose to
+<strong>args</strong>, <strong>origin</strong>, <strong>parameters</strong> in typing-module generics. May eventually be replaced by these.</dd>
+<dt><strong><code>__pydantic_parent_namespace__</code></strong></dt>
+<dd>Parent namespace of the model, used for automatic rebuilding of models.</dd>
+<dt><strong><code>__pydantic_post_init__</code></strong></dt>
+<dd>The name of the post-init method for the model, if defined.</dd>
+<dt><strong><code>__pydantic_root_model__</code></strong></dt>
+<dd>Whether the model is a <code>RootModel</code>.</dd>
+<dt><strong><code>__pydantic_serializer__</code></strong></dt>
+<dd>The pydantic-core SchemaSerializer used to dump instances of the model.</dd>
+<dt><strong><code>__pydantic_validator__</code></strong></dt>
+<dd>The pydantic-core SchemaValidator used to validate instances of the model.</dd>
+<dt><strong><code>__pydantic_extra__</code></strong></dt>
+<dd>An instance attribute with the values of extra fields from validation when
+<code>model_config['extra'] == 'allow'</code>.</dd>
+<dt><strong><code>__pydantic_fields_set__</code></strong></dt>
+<dd>An instance attribute with the names of fields explicitly specified during validation.</dd>
+<dt><strong><code>__pydantic_private__</code></strong></dt>
+<dd>Instance attribute with the values of private attributes set on the model instance.</dd>
+</dl>
+<p>Create a new model by parsing and validating input data from keyword arguments.</p>
+<p>Raises [<code>ValidationError</code>][pydantic_core.ValidationError] if the input data cannot be
+validated to form a valid model.</p>
+<p><code>__init__</code> uses <code>__pydantic_self__</code> instead of the more common <code>self</code> for the first arg to
+allow <code>self</code> as a field name.</p></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">class SoupFactory(BaseModel):
+    days_off: int
+    stock: dict</code></pre>
+</details>
+<h3>Ancestors</h3>
+<ul class="hlist">
+<li>pydantic.main.BaseModel</li>
+</ul>
+<h3>Class variables</h3>
+<dl>
+<dt id="algorithme.modules.data_form.SoupFactory.days_off"><code class="name">var <span class="ident">days_off</span> : int</code></dt>
+<dd>
+<div class="desc"></div>
+</dd>
+<dt id="algorithme.modules.data_form.SoupFactory.model_config"><code class="name">var <span class="ident">model_config</span></code></dt>
+<dd>
+<div class="desc"></div>
+</dd>
+<dt id="algorithme.modules.data_form.SoupFactory.model_fields"><code class="name">var <span class="ident">model_fields</span></code></dt>
+<dd>
+<div class="desc"></div>
+</dd>
+<dt id="algorithme.modules.data_form.SoupFactory.stock"><code class="name">var <span class="ident">stock</span> : dict</code></dt>
+<dd>
+<div class="desc"></div>
+</dd>
+</dl>
+</dd>
+<dt id="algorithme.modules.data_form.Tractor"><code class="flex name class">
+<span>class <span class="ident">Tractor</span></span>
+<span>(</span><span>**data: Any)</span>
+</code></dt>
+<dd>
+<div class="desc"><p>Usage docs: <a href="https://docs.pydantic.dev/2.4/concepts/models/">https://docs.pydantic.dev/2.4/concepts/models/</a></p>
+<p>A base class for creating Pydantic models.</p>
+<h2 id="attributes">Attributes</h2>
+<dl>
+<dt><strong><code>__class_vars__</code></strong></dt>
+<dd>The names of classvars defined on the model.</dd>
+<dt><strong><code>__private_attributes__</code></strong></dt>
+<dd>Metadata about the private attributes of the model.</dd>
+<dt><strong><code>__signature__</code></strong></dt>
+<dd>The signature for instantiating the model.</dd>
+<dt><strong><code>__pydantic_complete__</code></strong></dt>
+<dd>Whether model building is completed, or if there are still undefined fields.</dd>
+<dt><strong><code>__pydantic_core_schema__</code></strong></dt>
+<dd>The pydantic-core schema used to build the SchemaValidator and SchemaSerializer.</dd>
+<dt><strong><code>__pydantic_custom_init__</code></strong></dt>
+<dd>Whether the model has a custom <code>__init__</code> function.</dd>
+<dt><strong><code>__pydantic_decorators__</code></strong></dt>
+<dd>Metadata containing the decorators defined on the model.
+This replaces <code>Model.__validators__</code> and <code>Model.__root_validators__</code> from Pydantic V1.</dd>
+<dt><strong><code>__pydantic_generic_metadata__</code></strong></dt>
+<dd>Metadata for generic models; contains data used for a similar purpose to
+<strong>args</strong>, <strong>origin</strong>, <strong>parameters</strong> in typing-module generics. May eventually be replaced by these.</dd>
+<dt><strong><code>__pydantic_parent_namespace__</code></strong></dt>
+<dd>Parent namespace of the model, used for automatic rebuilding of models.</dd>
+<dt><strong><code>__pydantic_post_init__</code></strong></dt>
+<dd>The name of the post-init method for the model, if defined.</dd>
+<dt><strong><code>__pydantic_root_model__</code></strong></dt>
+<dd>Whether the model is a <code>RootModel</code>.</dd>
+<dt><strong><code>__pydantic_serializer__</code></strong></dt>
+<dd>The pydantic-core SchemaSerializer used to dump instances of the model.</dd>
+<dt><strong><code>__pydantic_validator__</code></strong></dt>
+<dd>The pydantic-core SchemaValidator used to validate instances of the model.</dd>
+<dt><strong><code>__pydantic_extra__</code></strong></dt>
+<dd>An instance attribute with the values of extra fields from validation when
+<code>model_config['extra'] == 'allow'</code>.</dd>
+<dt><strong><code>__pydantic_fields_set__</code></strong></dt>
+<dd>An instance attribute with the names of fields explicitly specified during validation.</dd>
+<dt><strong><code>__pydantic_private__</code></strong></dt>
+<dd>Instance attribute with the values of private attributes set on the model instance.</dd>
+</dl>
+<p>Create a new model by parsing and validating input data from keyword arguments.</p>
+<p>Raises [<code>ValidationError</code>][pydantic_core.ValidationError] if the input data cannot be
+validated to form a valid model.</p>
+<p><code>__init__</code> uses <code>__pydantic_self__</code> instead of the more common <code>self</code> for the first arg to
+allow <code>self</code> as a field name.</p></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">class Tractor(BaseModel):
+    location: str
+    id: int</code></pre>
+</details>
+<h3>Ancestors</h3>
+<ul class="hlist">
+<li>pydantic.main.BaseModel</li>
+</ul>
+<h3>Class variables</h3>
+<dl>
+<dt id="algorithme.modules.data_form.Tractor.id"><code class="name">var <span class="ident">id</span> : int</code></dt>
+<dd>
+<div class="desc"></div>
+</dd>
+<dt id="algorithme.modules.data_form.Tractor.location"><code class="name">var <span class="ident">location</span> : str</code></dt>
+<dd>
+<div class="desc"></div>
+</dd>
+<dt id="algorithme.modules.data_form.Tractor.model_config"><code class="name">var <span class="ident">model_config</span></code></dt>
+<dd>
+<div class="desc"></div>
+</dd>
+<dt id="algorithme.modules.data_form.Tractor.model_fields"><code class="name">var <span class="ident">model_fields</span></code></dt>
+<dd>
+<div class="desc"></div>
+</dd>
+</dl>
+</dd>
+</dl>
+</section>
+</article>
+<nav id="sidebar">
+<h1>Index</h1>
+<div class="toc">
+<ul></ul>
+</div>
+<ul id="index">
+<li><h3>Super-module</h3>
+<ul>
+<li><code><a title="algorithme.modules" href="index.html">algorithme.modules</a></code></li>
+</ul>
+</li>
+<li><h3><a href="#header-classes">Classes</a></h3>
+<ul>
+<li>
+<h4><code><a title="algorithme.modules.data_form.Employee" href="#algorithme.modules.data_form.Employee">Employee</a></code></h4>
+<ul class="two-column">
+<li><code><a title="algorithme.modules.data_form.Employee.id" href="#algorithme.modules.data_form.Employee.id">id</a></code></li>
+<li><code><a title="algorithme.modules.data_form.Employee.location" href="#algorithme.modules.data_form.Employee.location">location</a></code></li>
+<li><code><a title="algorithme.modules.data_form.Employee.model_config" href="#algorithme.modules.data_form.Employee.model_config">model_config</a></code></li>
+<li><code><a title="algorithme.modules.data_form.Employee.model_fields" href="#algorithme.modules.data_form.Employee.model_fields">model_fields</a></code></li>
+<li><code><a title="algorithme.modules.data_form.Employee.salary" href="#algorithme.modules.data_form.Employee.salary">salary</a></code></li>
+<li><code><a title="algorithme.modules.data_form.Employee.tractor" href="#algorithme.modules.data_form.Employee.tractor">tractor</a></code></li>
+</ul>
+</li>
+<li>
+<h4><code><a title="algorithme.modules.data_form.Field" href="#algorithme.modules.data_form.Field">Field</a></code></h4>
+<ul class="two-column">
+<li><code><a title="algorithme.modules.data_form.Field.bought" href="#algorithme.modules.data_form.Field.bought">bought</a></code></li>
+<li><code><a title="algorithme.modules.data_form.Field.content" href="#algorithme.modules.data_form.Field.content">content</a></code></li>
+<li><code><a title="algorithme.modules.data_form.Field.location" href="#algorithme.modules.data_form.Field.location">location</a></code></li>
+<li><code><a title="algorithme.modules.data_form.Field.model_config" href="#algorithme.modules.data_form.Field.model_config">model_config</a></code></li>
+<li><code><a title="algorithme.modules.data_form.Field.model_fields" href="#algorithme.modules.data_form.Field.model_fields">model_fields</a></code></li>
+<li><code><a title="algorithme.modules.data_form.Field.needed_water" href="#algorithme.modules.data_form.Field.needed_water">needed_water</a></code></li>
+</ul>
+</li>
+<li>
+<h4><code><a title="algorithme.modules.data_form.General" href="#algorithme.modules.data_form.General">General</a></code></h4>
+<ul class="two-column">
+<li><code><a title="algorithme.modules.data_form.General.day" href="#algorithme.modules.data_form.General.day">day</a></code></li>
+<li><code><a title="algorithme.modules.data_form.General.events" href="#algorithme.modules.data_form.General.events">events</a></code></li>
+<li><code><a title="algorithme.modules.data_form.General.farms" href="#algorithme.modules.data_form.General.farms">farms</a></code></li>
+<li><code><a title="algorithme.modules.data_form.General.greenhouse_gas" href="#algorithme.modules.data_form.General.greenhouse_gas">greenhouse_gas</a></code></li>
+<li><code><a title="algorithme.modules.data_form.General.model_config" href="#algorithme.modules.data_form.General.model_config">model_config</a></code></li>
+<li><code><a title="algorithme.modules.data_form.General.model_fields" href="#algorithme.modules.data_form.General.model_fields">model_fields</a></code></li>
+</ul>
+</li>
+<li>
+<h4><code><a title="algorithme.modules.data_form.Loan" href="#algorithme.modules.data_form.Loan">Loan</a></code></h4>
+<ul class="">
+<li><code><a title="algorithme.modules.data_form.Loan.amount" href="#algorithme.modules.data_form.Loan.amount">amount</a></code></li>
+<li><code><a title="algorithme.modules.data_form.Loan.model_config" href="#algorithme.modules.data_form.Loan.model_config">model_config</a></code></li>
+<li><code><a title="algorithme.modules.data_form.Loan.model_fields" href="#algorithme.modules.data_form.Loan.model_fields">model_fields</a></code></li>
+<li><code><a title="algorithme.modules.data_form.Loan.start_day" href="#algorithme.modules.data_form.Loan.start_day">start_day</a></code></li>
+</ul>
+</li>
+<li>
+<h4><code><a title="algorithme.modules.data_form.Owner" href="#algorithme.modules.data_form.Owner">Owner</a></code></h4>
+<ul class="two-column">
+<li><code><a title="algorithme.modules.data_form.Owner.blocked" href="#algorithme.modules.data_form.Owner.blocked">blocked</a></code></li>
+<li><code><a title="algorithme.modules.data_form.Owner.employees" href="#algorithme.modules.data_form.Owner.employees">employees</a></code></li>
+<li><code><a title="algorithme.modules.data_form.Owner.events" href="#algorithme.modules.data_form.Owner.events">events</a></code></li>
+<li><code><a title="algorithme.modules.data_form.Owner.fields" href="#algorithme.modules.data_form.Owner.fields">fields</a></code></li>
+<li><code><a title="algorithme.modules.data_form.Owner.loans" href="#algorithme.modules.data_form.Owner.loans">loans</a></code></li>
+<li><code><a title="algorithme.modules.data_form.Owner.model_config" href="#algorithme.modules.data_form.Owner.model_config">model_config</a></code></li>
+<li><code><a title="algorithme.modules.data_form.Owner.model_fields" href="#algorithme.modules.data_form.Owner.model_fields">model_fields</a></code></li>
+<li><code><a title="algorithme.modules.data_form.Owner.money" href="#algorithme.modules.data_form.Owner.money">money</a></code></li>
+<li><code><a title="algorithme.modules.data_form.Owner.name" href="#algorithme.modules.data_form.Owner.name">name</a></code></li>
+<li><code><a title="algorithme.modules.data_form.Owner.score" href="#algorithme.modules.data_form.Owner.score">score</a></code></li>
+<li><code><a title="algorithme.modules.data_form.Owner.soup_factory" href="#algorithme.modules.data_form.Owner.soup_factory">soup_factory</a></code></li>
+<li><code><a title="algorithme.modules.data_form.Owner.tractors" href="#algorithme.modules.data_form.Owner.tractors">tractors</a></code></li>
+</ul>
+</li>
+<li>
+<h4><code><a title="algorithme.modules.data_form.SoupFactory" href="#algorithme.modules.data_form.SoupFactory">SoupFactory</a></code></h4>
+<ul class="">
+<li><code><a title="algorithme.modules.data_form.SoupFactory.days_off" href="#algorithme.modules.data_form.SoupFactory.days_off">days_off</a></code></li>
+<li><code><a title="algorithme.modules.data_form.SoupFactory.model_config" href="#algorithme.modules.data_form.SoupFactory.model_config">model_config</a></code></li>
+<li><code><a title="algorithme.modules.data_form.SoupFactory.model_fields" href="#algorithme.modules.data_form.SoupFactory.model_fields">model_fields</a></code></li>
+<li><code><a title="algorithme.modules.data_form.SoupFactory.stock" href="#algorithme.modules.data_form.SoupFactory.stock">stock</a></code></li>
+</ul>
+</li>
+<li>
+<h4><code><a title="algorithme.modules.data_form.Tractor" href="#algorithme.modules.data_form.Tractor">Tractor</a></code></h4>
+<ul class="">
+<li><code><a title="algorithme.modules.data_form.Tractor.id" href="#algorithme.modules.data_form.Tractor.id">id</a></code></li>
+<li><code><a title="algorithme.modules.data_form.Tractor.location" href="#algorithme.modules.data_form.Tractor.location">location</a></code></li>
+<li><code><a title="algorithme.modules.data_form.Tractor.model_config" href="#algorithme.modules.data_form.Tractor.model_config">model_config</a></code></li>
+<li><code><a title="algorithme.modules.data_form.Tractor.model_fields" href="#algorithme.modules.data_form.Tractor.model_fields">model_fields</a></code></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</nav>
+</main>
+<footer id="footer">
+<p>Generated by <a href="https://pdoc3.github.io/pdoc" title="pdoc: Python API documentation generator"><cite>pdoc</cite> 0.10.0</a>.</p>
+</footer>
+</body>
+</html>
