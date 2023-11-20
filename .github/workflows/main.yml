@@ -32,5 +32,4 @@ jobs:
       working-directory: ./
 
     - name: move doc
-      run: mv html/algorithme/* docs/
-      working-directory: ./
+      run: rsync -a  html/algorithme/* docs/
