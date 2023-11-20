@@ -2,32 +2,23 @@
 # Chronobio
 
 ## Setup du projet :
-
+### Cloner le projet :
 ```bash
 git clone https://github.com/A-lebourch/Chronobio.git
  ```
 
-# installer les dépendance :
+### installer les dépendance :
 
 ```bash
 pip install -r requirements.txt
-sudo pip3 install virtualenv
  ```
 
- ## lancer en utilisant competition.sh
+## Utilisation du code en mode compétition :
 
- installer un venv
-```bash
- python3 -m venv my_venv
- ```
-activer le venv
- ```bash
- . my_venv/bin/activate
- ```
-run le code
- ```bash
- cd chronobio
+Il faut cloner le projet dans le dossier teams d'un jeux chronobio
 
- . competition.sh
+Pour lancer le jeu il suffit d'utiliser le fichier ```_launch.sh```, ce fichier prend comme paramètre le port de la partie pouvoir s'y connecter
 
- ```
+## Documentation du code :
+
+[Cliquer ici pour accéder à la documentation du code](https://a-lebourch.github.io/Chronobio/)
