@@ -39,8 +39,6 @@ class Strategy:
     def main_propre(self):
         self.get_data()
         print("#" * 80)
-        # print(self.game_data)
-        # print(self.game_data.day, self.start_day)
         nb_employee = 22
         owner = Owner()
         owner.money = self.my_farm.money
@@ -52,9 +50,7 @@ class Strategy:
                 self.add_commands(ord.acheter_tracteur())
 
             for i in range(5):
-                # if owner.can_buy_field():
                 self.add_commands(ord.acheter_champ())
-                # owner.money -= 5000
 
         if self.my_farm.fields[4].bought:
             for i in range(len(self.my_fields)):
@@ -63,16 +59,6 @@ class Strategy:
         if self.game_data.day == self.start_day:
             for i in range(nb_employee):
                 self.add_commands("0 EMPLOYER")
-            # self.start_day = self.game_data.day + 1
-
-        # if self.game_data.day == self.start_day + (30 * 15):
-        #     for i in range(nb_employee):
-        #         print((self.turnover * 22) + i + 1)
-        #         # if owner.can_fire((self.turnover * 22) + i + 1):
-        #         self.add_commands(ord.licencier(
-        #                           (self.turnover * 22) + i + 1))
-        #     self.turn = 0
-        #     self.turnover += 1
 
         if len(self.my_farm.employees) > 0:
             if self.game_data.day == self.start_day + (30 * 15) + 1:
@@ -104,11 +90,9 @@ class Strategy:
             field_index = self.game_data.day - (self.start_day + 2)
             field = self.update_field(field_index)
             if field.needed_water():
-                for i in range(10):
+                for i in range(2, 12):
                     self.add_commands(
-                        ord.arroser(
-                            (self.turnover * 22) + i + 2, field_index + 1
-                        )
+                        ord.arroser((self.turnover * 22) + i, field_index + 1)
                     )
 
         if self.start_day + 3 <= self.game_data.day <= self.start_day + 4:
@@ -123,8 +107,8 @@ class Strategy:
                     )
                 )
 
-        if self.game_data.day >= self.start_day + 6:
-            jour_rose = (self.game_data.day - (self.start_day + 6)) % 4
+        if self.game_data.day >= self.start_day + 7:
+            jour_rose = (self.game_data.day - (self.start_day + 7)) % 4
             # print("jour rose", jour_rose)
             if jour_rose == 0:
                 water_field_id = 4
@@ -184,7 +168,6 @@ class Strategy:
 
         if self.game_data.day >= self.start_day + 5:
             jour_bleu = (self.game_data.day - (self.start_day + 5)) % 6
-            # print("jour bleu", jour_bleu)
             if jour_bleu == 1:
                 water_field_id = 0
             if jour_bleu == 4:
