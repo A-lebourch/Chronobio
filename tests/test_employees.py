@@ -29,3 +29,9 @@ def test_busy_employee_1():
     employee = Employee()
     employee.busy = True
     assert employee.is_busy()
+
+
+def test_busy_employee_2():
+    employee = Employee()
+    employee.busy = False
+    assert not employee.is_busy()
