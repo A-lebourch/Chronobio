@@ -63,7 +63,7 @@ class Strategy:
         if self.game_data.day == self.start_day:
             for i in range(nb_employee):
                 self.add_commands("0 EMPLOYER")
-            self.start_day = self.game_data.day + 1
+            # self.start_day = self.game_data.day + 1
 
         # if self.game_data.day == self.start_day + (30 * 15):
         #     for i in range(nb_employee):
