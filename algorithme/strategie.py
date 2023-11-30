@@ -60,23 +60,31 @@ class Strategy:
             for i in range(len(self.my_fields)):
                 field = self.update_field(i)
 
-        if self.game_data.day == 0:
+        if self.game_data.day == self.start_day:
             for i in range(nb_employee):
                 self.add_commands("0 EMPLOYER")
             self.start_day = self.game_data.day + 1
 
-        if self.game_data.day == self.start_day + (30 * 15):
-            for i in range(nb_employee):
-                print((self.turnover * 22) + i + 1)
-                # if owner.can_fire((self.turnover * 22) + i + 1):
-                self.add_commands(ord.licencier((self.turnover * 22) + i + 1))
+        # if self.game_data.day == self.start_day + (30 * 15):
+        #     for i in range(nb_employee):
+        #         print((self.turnover * 22) + i + 1)
+        #         # if owner.can_fire((self.turnover * 22) + i + 1):
+        #         self.add_commands(ord.licencier(
+        #                           (self.turnover * 22) + i + 1))
+        #     self.turn = 0
+        #     self.turnover += 1
 
-        if self.game_data.day == self.start_day + (30 * 15) + 1:
-            for i in range(nb_employee):
-                self.add_commands("0 EMPLOYER")
-            self.start_day = self.game_data.day + 1
-            self.turn = 0
-            self.turnover += 1
+        if len(self.my_farm.employees) > 0:
+            if self.game_data.day == self.start_day + (30 * 15):
+                for i in range(nb_employee):
+                    self.add_commands(
+                        "0 LICENCIER "
+                        + str(i + 1 + self.turnover * nb_employee)
+                    )
+
+                self.start_day = self.game_data.day + 1
+                self.turn = 0
+                self.turnover += 1
 
         if self.start_day + 1 <= self.game_data.day <= self.start_day + 4:
             field_index = self.game_data.day - (self.start_day + 1)
