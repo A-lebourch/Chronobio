@@ -89,23 +89,23 @@ class Strategy:
         if self.start_day + 2 <= self.game_data.day <= self.start_day + 4:
             field_index = self.game_data.day - (self.start_day + 2)
             field = self.update_field(field_index)
-            if field.needed_water():
-                for i in range(2, 12):
-                    self.add_commands(
-                        ord.arroser((self.turnover * 22) + i, field_index + 1)
-                    )
+            # if field.needed_water():
+            for i in range(2, 12):
+                self.add_commands(
+                    ord.arroser((self.turnover * 22) + i, field_index + 1)
+                )
 
         if self.start_day + 3 <= self.game_data.day <= self.start_day + 4:
             field_index = self.game_data.day - (self.start_day + 3)
             field = self.update_field(field_index)
-            if field.can_harvest_sell():
-                self.add_commands(
-                    ord.stocker(
-                        (self.turnover * 22) + 12 + field_index,
-                        field_index + 1,
-                        field_index + 1,
-                    )
+            # if field.can_harvest_sell():
+            self.add_commands(
+                ord.stocker(
+                    (self.turnover * 22) + 12 + field_index,
+                    field_index + 1,
+                    field_index + 1,
                 )
+            )
 
         if self.game_data.day >= self.start_day + 5:
             jour_rose = (self.game_data.day - (self.start_day + 5)) % 4
