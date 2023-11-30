@@ -35,3 +35,8 @@ flake8 algorithme/ -v
 ```
 
 [Cliquer ici pour accéder à la documentation du code](https://a-lebourch.github.io/Chronobio/)
+
+# PS (note pour VPoulailleau) :
+
+Désolé j'ai fais les dernière modifications un  peu tard ...
+Je ne comprend pas d'où viens mon bug avec l'employée 34 cela fait maintenant 2h que je cherche, je sais que le problème est dû au changement de numéro des employés, mais je n'arrive pas à identifier la source, car avant que ce soit l'employé 34, l'employé 12 faisait très bien son travail. j'imagine qu'il doit sauter une étape quelque part et donc il se retrouve surchargé avec 2 ordres.
