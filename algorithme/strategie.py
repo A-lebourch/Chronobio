@@ -66,15 +66,15 @@ class Strategy:
                 # if owner.can_hire():
                 #     owner.money -= 1000
                 self.add_commands("0 EMPLOYER")
+            self.start_day = self.game_data.day + 1
+            self.turn = 0
+            self.turnover += 1
 
-                # if len(self.my_farm.employees) > 0:
-                #     if owner.can_fire(0):
-                #         # self.add_commands("0 EMPRUNTER 20000")
-                #         for i in range(nb_employee):
-                #             self.add_commands(
-                #                 "0 LICENCIER "
-                #                 + str(i + 1 + self.turnover * nb_employee)
-                #             )
+        if self.game_data.day == self.start_day + (30 * 15):
+            for i in range(nb_employee):
+                if owner.can_fire(i):
+                    self.add_commands(ord.licencier((self.turnover * 22) + i))
+
             self.start_day = self.game_data.day + 1
             self.turn = 0
             self.turnover += 1
@@ -85,7 +85,7 @@ class Strategy:
             if field.is_sowable():
                 self.add_commands(
                     ord.semer(
-                        self.turnover * 1,
+                        (self.turnover * 22) + 1,
                         self.aliments[self.legume],
                         field_index + 1,
                     )
@@ -106,7 +106,7 @@ class Strategy:
             if field.can_harvest_sell():
                 self.add_commands(
                     ord.stocker(
-                        self.turnover * 12 + field_index,
+                        (self.turnover * 22) + 12 + field_index,
                         field_index + 1,
                         field_index + 1,
                     )
@@ -127,7 +127,8 @@ class Strategy:
                     for employee_id in range(2, 12):
                         self.add_commands(
                             ord.arroser(
-                                self.turnover * employee_id, water_field_id
+                                (self.turnover * 22) + employee_id,
+                                water_field_id,
                             )
                         )
 
@@ -142,7 +143,7 @@ class Strategy:
                 if field.is_sowable():
                     self.add_commands(
                         ord.semer(
-                            self.turnover * 1,
+                            (self.turnover * 22) + 1,
                             self.aliments[self.legume],
                             sow_field_id,
                         )
@@ -164,7 +165,7 @@ class Strategy:
                 if field.can_harvest_sell():
                     self.add_commands(
                         ord.stocker(
-                            self.turnover * stock_farmer_id,
+                            (self.turnover * 22) + stock_farmer_id,
                             stock_field_id,
                             stock_farmer_id - 11,
                         )
@@ -183,7 +184,8 @@ class Strategy:
                     for employee_id in range(18, 23):
                         self.add_commands(
                             ord.arroser(
-                                self.turnover * employee_id, water_field_id + 1
+                                (self.turnover * 22) + employee_id,
+                                water_field_id + 1,
                             )
                         )
 
@@ -196,7 +198,7 @@ class Strategy:
                 if field.is_sowable():
                     self.add_commands(
                         ord.semer(
-                            self.turnover * 18,
+                            (self.turnover * 22) + 18,
                             self.aliments[self.legume],
                             sow_field_id + 1,
                         )
@@ -214,19 +216,13 @@ class Strategy:
                     self.add_commands(ord.vendre(stock_field_id + 1))
 
         if self.game_data.day == self.start_day + 11:
-            self.add_commands(ord.cuisiner(self.turnover * 15))
-            self.add_commands(ord.cuisiner(self.turnover * 16))
-            self.add_commands(ord.cuisiner(self.turnover * 17))
+            self.add_commands(ord.cuisiner((self.turnover * 22) + 15))
+            self.add_commands(ord.cuisiner((self.turnover * 22) + 16))
+            self.add_commands(ord.cuisiner((self.turnover * 22) + 17))
 
         if self.game_data.day > self.start_day + 18 and all_vegetables(
             self.my_farm.soup_factory
         ):
-            self.add_commands(ord.cuisiner(self.turnover * 15))
-            self.add_commands(ord.cuisiner(self.turnover * 16))
-            self.add_commands(ord.cuisiner(self.turnover * 17))
-
-        if self.game_data.day == self.start_day + (30 * 15):
-            for i in range(nb_employee):
-                if owner.can_fire(i):
-                    self.add_commands(ord.licencier(self.turnover * i))
-            self.start_day = self.game_data.day
+            self.add_commands(ord.cuisiner((self.turnover * 22) + 15))
+            self.add_commands(ord.cuisiner((self.turnover * 22) + 16))
+            self.add_commands(ord.cuisiner((self.turnover * 22) + 17))
