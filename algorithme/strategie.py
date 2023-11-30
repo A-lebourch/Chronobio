@@ -70,7 +70,7 @@ class Strategy:
 
         if self.game_data.day == self.start_day + (30 * 15):
             for i in range(nb_employee):
-                if owner.can_fire(i):
+                if owner.can_fire(i - 1):
                     self.add_commands(ord.licencier((self.turnover * 22) + i))
 
             self.start_day = self.game_data.day + 1
