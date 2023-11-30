@@ -107,8 +107,8 @@ class Strategy:
                     )
                 )
 
-        if self.game_data.day >= self.start_day + 7:
-            jour_rose = (self.game_data.day - (self.start_day + 7)) % 4
+        if self.game_data.day >= self.start_day + 5:
+            jour_rose = (self.game_data.day - (self.start_day + 5)) % 4
             # print("jour rose", jour_rose)
             if jour_rose == 0:
                 water_field_id = 4
