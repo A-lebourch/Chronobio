@@ -105,7 +105,11 @@ class Strategy:
             field = self.update_field(field_index)
             if field.needed_water():
                 for i in range(10):
-                    self.add_commands(ord.arroser(i + 2, field_index + 1))
+                    self.add_commands(
+                        ord.arroser(
+                            (self.turnover * 22) + i + 2, field_index + 1
+                        )
+                    )
 
         if self.start_day + 3 <= self.game_data.day <= self.start_day + 4:
             field_index = self.game_data.day - (self.start_day + 3)
