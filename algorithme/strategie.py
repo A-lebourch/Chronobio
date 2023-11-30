@@ -59,12 +59,9 @@ class Strategy:
         if self.my_farm.fields[4].bought:
             for i in range(len(self.my_fields)):
                 field = self.update_field(i)
-                # print(field.needed_water())
 
         if self.game_data.day == 0:
             for i in range(nb_employee):
-                # if owner.can_hire():
-                #     owner.money -= 1000
                 self.add_commands("0 EMPLOYER")
             self.start_day = self.game_data.day + 1
 
@@ -74,7 +71,10 @@ class Strategy:
                 # if owner.can_fire((self.turnover * 22) + i + 1):
                 self.add_commands(ord.licencier((self.turnover * 22) + i + 1))
 
-            self.start_day = self.game_data.day + 3
+        if self.game_data.day == self.start_day + (30 * 15) + 1:
+            for i in range(nb_employee):
+                self.add_commands("0 EMPLOYER")
+            self.start_day = self.game_data.day + 1
             self.turn = 0
             self.turnover += 1
 
