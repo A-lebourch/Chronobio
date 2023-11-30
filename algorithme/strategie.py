@@ -75,14 +75,14 @@ class Strategy:
         #     self.turnover += 1
 
         if len(self.my_farm.employees) > 0:
-            if self.game_data.day == self.start_day + (30 * 15):
+            if self.game_data.day == self.start_day + (30 * 15) + 1:
                 for i in range(nb_employee):
                     self.add_commands(
                         "0 LICENCIER "
                         + str(i + 1 + self.turnover * nb_employee)
                     )
 
-                self.start_day = self.game_data.day + 1
+                self.start_day = self.game_data.day + 3
                 self.turn = 0
                 self.turnover += 1
 
