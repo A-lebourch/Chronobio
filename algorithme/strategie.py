@@ -74,7 +74,7 @@ class Strategy:
                 # if owner.can_fire((self.turnover * 22) + i + 1):
                 self.add_commands(ord.licencier((self.turnover * 22) + i + 1))
 
-            self.start_day = self.game_data.day + 1
+            self.start_day = self.game_data.day + 3
             self.turn = 0
             self.turnover += 1
 
