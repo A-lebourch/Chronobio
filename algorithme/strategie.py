@@ -82,7 +82,7 @@ class Strategy:
                         + str(i + 1 + self.turnover * nb_employee)
                     )
 
-                self.start_day = self.game_data.day + 3
+                self.start_day = self.game_data.day + 4
                 self.turn = 0
                 self.turnover += 1
 
