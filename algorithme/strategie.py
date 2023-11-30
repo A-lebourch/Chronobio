@@ -75,9 +75,9 @@ class Strategy:
                 #                 "0 LICENCIER "
                 #                 + str(i + 1 + self.turnover * nb_employee)
                 #             )
-                self.start_day = self.game_data.day + 1
-                self.turn = 0
-                self.turnover += 1
+            self.start_day = self.game_data.day + 1
+            self.turn = 0
+            self.turnover += 1
 
         if self.start_day + 1 <= self.game_data.day <= self.start_day + 4:
             field_index = self.game_data.day - (self.start_day + 1)
