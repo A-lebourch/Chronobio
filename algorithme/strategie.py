@@ -89,16 +89,16 @@ class Strategy:
         if self.start_day + 1 <= self.game_data.day <= self.start_day + 4:
             field_index = self.game_data.day - (self.start_day + 1)
             field = self.update_field(field_index)
-            if field.is_sowable():
-                self.add_commands(
-                    ord.semer(
-                        (self.turnover * 22) + 1,
-                        self.aliments[self.legume],
-                        field_index + 1,
-                    )
+            # if field.is_sowable():
+            self.add_commands(
+                ord.semer(
+                    (self.turnover * 22) + 1,
+                    self.aliments[self.legume],
+                    field_index + 1,
                 )
-                self.legume += 1
-                self.legume %= 5
+            )
+            self.legume += 1
+            self.legume %= 5
 
         if self.start_day + 2 <= self.game_data.day <= self.start_day + 4:
             field_index = self.game_data.day - (self.start_day + 2)
