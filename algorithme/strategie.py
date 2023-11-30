@@ -39,8 +39,8 @@ class Strategy:
     def main_propre(self):
         self.get_data()
         print("#" * 80)
-        print(self.game_data)
-        print(self.game_data.day, self.start_day)
+        # print(self.game_data)
+        # print(self.game_data.day, self.start_day)
         nb_employee = 22
         owner = Owner()
         owner.money = self.my_farm.money
@@ -70,7 +70,8 @@ class Strategy:
 
         if self.game_data.day == self.start_day + (30 * 15):
             for i in range(nb_employee):
-                if owner.can_fire(i - 1):
+                print((self.turnover * 22) + i)
+                if owner.can_fire(i):
                     self.add_commands(ord.licencier((self.turnover * 22) + i))
 
             self.start_day = self.game_data.day + 1
@@ -112,7 +113,7 @@ class Strategy:
 
         if self.game_data.day >= self.start_day + 5:
             jour_rose = (self.game_data.day - (self.start_day + 5)) % 4
-            print("jour rose", jour_rose)
+            # print("jour rose", jour_rose)
             if jour_rose == 0:
                 water_field_id = 4
             if jour_rose == 1:
@@ -171,7 +172,7 @@ class Strategy:
 
         if self.game_data.day >= self.start_day + 5:
             jour_bleu = (self.game_data.day - (self.start_day + 5)) % 6
-            print("jour bleu", jour_bleu)
+            # print("jour bleu", jour_bleu)
             if jour_bleu == 1:
                 water_field_id = 0
             if jour_bleu == 4:
